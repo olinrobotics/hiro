@@ -1,0 +1,6 @@
+<!-- the programs needed to be used while drawing with Edwin  -->
+<launch>
+	<node name="edwin_behavior_node" pkg="edwin" type="arm_behaviors.py" />
+	<node name="create_routes" pkg="edwin" type="arm_behaviors.py"/>
+	<node name="edwin_arm_write" pkg="edwin" type="arm_write.py" />
+	</launch>

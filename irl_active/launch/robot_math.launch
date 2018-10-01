@@ -1,0 +1,8 @@
+<launch>
+  <include file="$(find usb_cam)/launch/usb_camera.launch" />
+  <node name="edwin_arm_node" pkg="edwin" type="arm_node.py" />
+  <node name="draw" pkg="edwin" type="arm_write.py" />
+  <node name="edwin_behavior_node" pkg="edwin" type="arm_behaviors.py" />
+  <node name="recognize_symbol" pkg="edwin" type="handwriting_recognition.py" />
+  <node name="do_math" pkg="edwin" type="math_interp.py" />
+  </launch>

@@ -1,0 +1,27 @@
+<launch>
+	<node pkg="tf" type="static_transform_publisher" name="world_to_cam"
+	    args="0 0 0 0 0 0 world usb_cam 100" />
+	<node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+		<param name="video_device" value="/dev/video0" />
+		<param name="image_width" value="640" />
+		<param name="image_height" value="480" />
+		<param name="pixel_format" value="yuyv" />
+		<param name="camera_frame_id" value="usb_cam" />
+		<param name="io_method" value="mmap"/>
+	</node>
+	<node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+		<remap from="image" to="/usb_cam/image_raw"/>
+		<param name="autosize" value="true" />
+	</node>
+
+	<arg name="cam_image_topic" default="/usb_cam/image_raw" />
+	<arg name="cam_info_topic" default="/usb_cam/camera_info" />
+	<arg name="output_frame" default="/usb_cam" />
+
+	<node name="edwin_arm_node" pkg="edwin" type="arm_node.py" />
+	<node name="edwin_behavior_node" pkg="edwin" type="arm_behaviors.py" />
+	<node name="edwin_draw_node" pkg="edwin" type="arm_draw.py" />
+	<node name="edwin_idle" pkg="edwin" type="idle.py" />
+	<node name="edwin_brain" pkg="edwin" type="brain.py" />
+
+	</launch>

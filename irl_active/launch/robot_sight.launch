@@ -1,0 +1,20 @@
+<launch>
+
+  <include file="$(find openni_launch)/launch/openni.launch" />
+  <include file="$(find usb_cam)/launch/usb_camera.launch" />
+
+  <node name="detect_bodies" pkg="edwin" type="edwin_bodies" />
+  <node name="detect_waves" pkg="edwin" type="edwin_wave" />
+
+  <node pkg="tf" type="static_transform_publisher" name="kinect2world" args="-250 600 -70 0 0 0 world kinect 100" />
+
+	<!-- <node name="edwin_arm_node" pkg="edwin" type="arm_node.py" />
+  <node name="create_routes" pkg="edwin" type="create_routes_launch.py" />
+	<node name="edwin_behavior_node" pkg="edwin" type="arm_behaviors.py" /> -->
+	<!-- <node pkg="tf" type="static_transform_publisher" name="kinect2world" args="-250 600 -70 0 0 0 world kinect 100" /> -->
+	<!-- <node name="edwin_idle" pkg="edwin" type="idle.py" />
+	<node name="edwin_brain" pkg="edwin" type="brain.py" /> -->
+	<!-- <node name="edwin_behavior_node" pkg="edwin" type="arm_behaviors.py" /> -->
+	<!--<node name="edwin_idle" pkg="edwin" type="idle.py" />-->
+	<!-- <node name="edwin_brain" pkg="edwin" type="brain.py" /> -->
+	</launch>

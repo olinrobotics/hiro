@@ -1,0 +1,150 @@
+(dp0
+S'heart'
+p1
+S'SPD: 700, R_heart'
+p2
+sS'high_five'
+p3
+S'SPD: 800, R_high5_self'
+p4
+sS'curiosity'
+p5
+S'R_curious, WR: 800, H: 0'
+p6
+sS'sad'
+p7
+S'SPD: 400, R_sad'
+p8
+sS'sleep'
+p9
+S'R_sleep'
+p10
+sS'laugh'
+p11
+S'SPD: 700, R_laugh, SPD: 1000'
+p12
+sS'star'
+p13
+S'SPD: 700, R_starfish'
+p14
+sS'disco'
+p15
+S'SPD: 800, R_disco'
+p16
+sS'nudge'
+p17
+S'R_look, H:0, H:-200, R_look'
+p18
+sS'angry'
+p19
+S'SPD: 200, R_stare, SPD: 1000'
+p20
+sS'idle_stare_3'
+p21
+S'R_stare_3'
+p22
+sS'idle_stare_2'
+p23
+S'R_stare_yonder'
+p24
+sS'idle_stare_1'
+p25
+S'R_stare'
+p26
+sS'idle_butt_wiggle'
+p27
+S'R_curl_up, WA: 4500, WA: 5400, WA: 4500, WA: 5400, WA: 4500, WA: 5400'
+p28
+sS'bored'
+p29
+S'SPD: 400, R_bored, R_stare'
+p30
+sS'leader'
+p31
+S'R_leader'
+p32
+sS'get_set'
+p33
+S'SPD: 600, R_get_set'
+p34
+sS'idle_sleep'
+p35
+S'R_sleep, WA: 8000, WA: 7000, WA: 8000, WA: 7000'
+p36
+sS'dab'
+p37
+S'SPD: 900, R_dab'
+p38
+sS'rub_tummy'
+p39
+S'SPD: 700, R_rub_tummy'
+p40
+sS'nod'
+p41
+S'R_stare, E:13000, E:12000'
+p42
+sS'idle_sniff'
+p43
+S'R_sniff'
+p44
+sS'hug_self'
+p45
+S'SPD: 8000, R_sniff'
+p46
+sS'idle_curiosity'
+p47
+S'R_look_at_draco, WR: 4500'
+p48
+sS'idle_sneeze'
+p49
+S'R_sneeze'
+p50
+sS'gloat'
+p51
+S'H: 1000\t, WR: 1700, SPD: 400, R_laugh '
+p52
+sS'idle_head_bobble'
+p53
+S'R_head_bobble'
+p54
+sS'wave'
+p55
+S'SPD: 650, R_wave'
+p56
+sS'look'
+p57
+S'R_look'
+p58
+sS'pout'
+p59
+S'R_sad_turn, WA: -1000, WA: 1000'
+p60
+sS'greet'
+p61
+S'R_greet1, WR:1500, H: 100, H: 0'
+p62
+sS'bow'
+p63
+S'SPD: 500, R_bow '
+p64
+sS'impatient'
+p65
+S'WA: 250, WA: -250, WA: 250, WA: -250, WA: 0, SPD: 700, R_impatient, SL: 1, R_annoyed_nudge'
+p66
+sS'praise'
+p67
+S'SPD: 1000, R_praise'
+p68
+sS'touch_head'
+p69
+S'SPD: 600, R_touch_head '
+p70
+sS'done_game'
+p71
+S'SPD: 600, R_done_game'
+p72
+sS'idle_wander'
+p73
+S'R_squirrel'
+p74
+s.
