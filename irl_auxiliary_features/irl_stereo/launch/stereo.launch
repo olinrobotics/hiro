@@ -1,7 +1,0 @@
-<launch>
-	<node pkg="tf" type="static_transform_publisher" name="camera_to_head" args="0.114 -0.03 0.05 0 0 0 1 link_5 camera_link 100" /> <!-- TODO : Fix Transform -->
-	<node pkg="irl_stereo" type="irl_stereo" name="irl_stereo" output="screen">
-		<param name="dev_l" value="/dev/video1"/>
-		<param name="dev_r" value="/dev/video2"/>
-	</node>
-</launch>
