@@ -282,7 +282,7 @@ class Arm():
         self.gestures["tp_camera"] = [Route([20.02, -91.66, -80.65, -90.09, 90.64, 18.21],2)]
 
         ### Project Gemini Gestures
-        self.gestures["pg_hover"] = [Route([90, -102.97, 77.89, -67.77, -90, 0],2)]
+        self.gestures["pg_hover"] = [Route([90, -102.97, 77.89, -67.77, -90, 0],3)]
         self.gestures["pg_hover_alternate"] = [Route([90, -102.97, 77.89, -67.77, -90, 90],2)]
         self.gestures["pg_pickup_down_pollux"] = [Route([4.84, -96.21, 121.08, -115.34, -86.59, -84.39], 3)]
         self.gestures["pg_pickup_down_castor"] = [Route([146.27, -95.34, 120.23, -115.19, -92.42, 55.93], 3)]
@@ -290,7 +290,8 @@ class Arm():
         self.gestures["pg_pickup_up_castor"] = [Route([145.51, -91.14, 57.46, -56.61, -89.94, 55], 3)]
 
         ### Chess Game Gestures
-        self.gestures["chess_hover"] = [Route([90, -102.97, 77.89, -67.77, -90, 0],2)]
+        self.gestures["chess_hover"] = [Route([90, -102.97, 77.89, -67.77, -90, 0],5)]
+        self.gestures["chess_hover2"] = [Route([75, -85, 84, -90, -90, 0],5)]
 
         ### IDLE GESTURES
         self.gestures["idle_stare_1"] = [Route([-40.20, -88.37, -23.93, -66.92, 76.21, 0], 2)]
