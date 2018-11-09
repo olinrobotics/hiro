@@ -3,8 +3,6 @@
 *~
 scripts/sound/media/*
 tools/*
-*.jpg
-*.png
 *.zip
 *.o
 *.a
