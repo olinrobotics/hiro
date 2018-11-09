@@ -1,0 +1,28 @@
+# Setup
+title:        Human Interactions Robotics Laboratory
+tagline:      HIRo is working to build a low-cost robotic coworker that can assist in workplace tasks and interact with other humans around it.
+baseurl:      "/hiro"
+paginate:     0
+locale:       "en"
+permalink:    /:categories/:title:output_ext
+
+# About/contact
+author:
+  name:       Olin Robotics
+  url:        https://olinrobotics.github.io/
+
+# Gems
+gems:
+  - jekyll-paginate
+
+#Others
+markdown: kramdown
+
+defaults:
+-
+  scope:
+    path: "" # an empty string here means all files in the project
+  values:
+    layout: "default"
+    thumbnail: "/assets/images/thumbnail.jpg"
+    imgURL: "/assets/images/thumbnail.jpg"
