@@ -1,6 +1,6 @@
 # How to create a post
 
-This is the instruction on how to create a post for the [IRL project page](https://olinrobotics.github.io/irl/projects.html).
+This is the instruction on how to create a post for the [HIRo project page](https://olinrobotics.github.io/hiro/projects.html).
 
 If you have any questions, email Khang Vu @ minhkhang.vu@students.olin.edu
 ## 1. Overview
@@ -13,7 +13,7 @@ The basic idea is Jekyll will use Markdown files to generate webpages. However, 
 ## 2. Basic preparations
 
 ### a. How to prepare your README file
-Copy this [raw Markdown template](https://raw.githubusercontent.com/olinrobotics/irl/gh-pages/_posts/README_TEMPLATE.md) and save it as a markdown file (with a file extension `.md`)
+Copy this [raw Markdown template](https://raw.githubusercontent.com/olinrobotics/hiro/gh-pages/_posts/README_TEMPLATE.md) and save it as a markdown file (with a file extension `.md`)
 
 Read this before you edit that file:
 * The file include a **front matter block** on the top. This code block tells Jekyll how to generate the site. 
@@ -65,13 +65,13 @@ If you don't have Ruby installed, install [Ruby 2.1.0 or higher](https://www.rub
 Then follow more instructions to install Jekyll here (look at the **Guide section**): [https://jekyllrb.com/docs/installation/](https://jekyllrb.com/docs/installation/)
 
 #### Step 2: Check out gh-pages branch
-Simply clone IRL and checkout `gh-pages`:
+Simply clone HIRo and checkout `gh-pages`:
 ```console
-$ git clone https://github.com/olinrobotics/irl.git
-$ cd irl
+$ git clone https://github.com/olinrobotics/hiro.git
+$ cd hiro
 $ git checkout gh-pages
 ```
-If you already cloned IRL, make sure you have the lasted version of `gh-pages` by running:
+If you already cloned HIRo, make sure you have the lasted version of `gh-pages` by running:
 ```console
 $ git pull origin gh-pages
 ```
@@ -86,28 +86,28 @@ git checkout -b {branch_name}
 - `{branch_name}` is the name of your branch. You should name it like `projectname-docs`.
 
 #### Step 4: Build your local Jekyll site
-First, let's install Jekyll using Bundler. In the `irl` folder in your local machine, run
+First, let's install Jekyll using Bundler. In the `hiro` folder in your local machine, run
 ```console
 $ bundle install
 ```
-Now, it's time to run IRL page locally:
+Now, it's time to run HIRo page locally:
 ```console
 $ bundle exec jekyll serve
 ```
 You'll get something like this:
 ```console
-Configuration file: /home/username/Git/irl/_config.yml
-            Source: /home/username/Git/irl
-       Destination: /home/username/Git/irl/_site
+Configuration file: /home/username/Git/hiro/_config.yml
+            Source: /home/username/Git/hiro
+       Destination: /home/username/Git/hiro/_site
  Incremental build: disabled. Enable with --incremental
       Generating... 
         Pagination: Pagination is enabled, but I couldn't find an index.html page to use as the pagination template. Skipping pagination.
                     done in 0.052 seconds.
- Auto-regeneration: enabled for '/home/username/Git/irl'
-    Server address: http://127.0.0.1:4000/irl/
+ Auto-regeneration: enabled for '/home/username/Git/hiro'
+    Server address: http://127.0.0.1:4000/hiro/
   Server running... press ctrl-c to stop.
 ```
-Depending your local machine, you might have different server address. Mine was `http://127.0.0.1:4000/irl/`. Open that link in the browser (or just `Ctrl + Click` on it).
+Depending your local machine, you might have different server address. Mine was `http://127.0.0.1:4000/hiro/`. Open that link in the browser (or just `Ctrl + Click` on it).
 
 #### Step 5: Add your post
 Now, it's time to handle your post. 
@@ -127,7 +127,7 @@ Second, copy the `yyyy-mm-dd-projectname.md` to the `_posts/` folder.
 Finally, copy all your image files to the `assets/images/` folder.
 
 #### Step 6: Test your post locally
-Now, navigate to the website again and go to `http://127.0.0.1:4000/irl/projects.html`. You should see your post in the post list. Click on the post to make sure it works. 
+Now, navigate to the website again and go to `http://127.0.0.1:4000/hiro/projects.html`. You should see your post in the post list. Click on the post to make sure it works. 
 
 (Optional) If your images do not show up, make sure you follow the steps in [How to prepare your README file](##how-to-prepare-your-readme-file) correctly.
 
@@ -144,7 +144,7 @@ $ git push origin {branch_name}
 - `{cool_projet_name}` is your project name, in my case `projectname`. 
 - `{branch_name}` is your branch name, in my case `projectname-docs`.
 
-Finally, go to [https://github.com/olinrobotics/irl/](https://github.com/olinrobotics/irl/) and [create a pull request](https://help.github.com/articles/creating-a-pull-request/). Make sure to add page maintainers and project leaders as reviewers.
+Finally, go to [https://github.com/olinrobotics/hiro/](https://github.com/olinrobotics/hiro/) and [create a pull request](https://help.github.com/articles/creating-a-pull-request/). Make sure to add page maintainers and project leaders as reviewers.
 
 ### Option 2: ask the page maintainers to upload your post
 If you aren't sure how to do Option 1, you can send the files to the page maintainers or project leaders and ask them to upload your post. Please spend time working with them closely to make sure that your post looks as expected.
