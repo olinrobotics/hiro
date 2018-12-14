@@ -1,0 +1,24 @@
+Get only faces
+- Detect human faces and crop image into them
+
+Filter out background
+
+Documentation, ''' for functions
+
+Make poster about Canny Edge Detection
+Apply blur to reduce noise
+tolerance of line
+
+animation fix
+
+callibrate for other arm
+progress bar
+
+fix scaling issues
+
+    add_point(x, y+1, points_left, bin_img, current, line)
+IndexError: index 400 is out of bounds for axis 0 with size 400
+
+Fix by drawing on screen
+
+Ask Yichen why doesn't work
