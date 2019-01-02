@@ -291,7 +291,8 @@ class Arm():
 
         ### Chess Game Gestures
         self.gestures["chess_hover"] = [Route([90, -102.97, 77.89, -67.77, -90, 0],5)]
-        self.gestures["chess_hover2"] = [Route([75, -85, 84, -90, -90, 0],5)]
+        self.gestures["chess_hover2"] = [Route([85.88, -95.15, 40.47, -37.98, -90, 0],5)]
+        self.gestures["chess_hover3"] = [Route([64.35, -97.14, 55.81, -48.08, -88.49, -23.90],5)]
 
         ### IDLE GESTURES
         self.gestures["idle_stare_1"] = [Route([-40.20, -88.37, -23.93, -66.92, 76.21, 0], 2)]
