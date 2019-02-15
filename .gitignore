@@ -4,6 +4,7 @@
 scripts/sound/media/*
 tools/*
 *.jpg
+*.jpeg
 *.png
 *.zip
 *.o
@@ -63,3 +64,4 @@ fabric.properties
 
 # *.iml
 # modules.xml
+venv/*
