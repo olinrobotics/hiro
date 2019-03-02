@@ -15,14 +15,14 @@
                         <div class="post">
                             <div class="post-header">
                             {% if person.thumbnail %}
-                                <img alt="{{ person.title }}" src="{{ person.thumbnail }}">
+                                <img alt="{{ person.title }}" src="{{ person.thumbnail | absolute_url }}">
                             {% else %}
-                                <img alt="{{ person.title }}" src="{{ "hiro/img/placeholder.png" }}>
+                                <img alt="{{ person.title }}" src="{{ "/img/placeholder.png" | absolute_url }}">
                             {% endif %}
                             </div>
                             <div class="post-body">
                                 <h3>
-                                    {{ person.title }}
+                                    <a href="{{ person.url | absolute_url }}">{{ person.title }}</a>
                                 </h3>
                                 {% if person.sub_heading %}
                                 <div class="subtitle">
