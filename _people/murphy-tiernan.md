@@ -1,12 +1,10 @@
 ---
-title: Murphy Tiernan
+title: Seung U Lyu
 date: 2017-11-14 10:47:11 +0000
-role:
-- advisor
-- staff
-thumbnail: "/uploads/2017/11/14/andrew-robles-300868.jpg"
-sub_heading: Professor
-email: murphy@belkirkcollege.com
+role: []
+thumbnail: ''
+sub_heading: ''
+email: ''
 linkedin: ''
 layout: person
 
