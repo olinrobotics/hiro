@@ -7,7 +7,7 @@
     <div class="container pure-g">
         <div class="pure-u-1">
             <div class="content">
-                <h2 class="section-heading">Belkirk Staff</h2>
+                <h2 class="section-heading">HIRo Staff</h2>
                 <div class="pure-g">
                 {% assign people = site.people %}
                 {% for person in people %}
@@ -15,14 +15,14 @@
                         <div class="post">
                             <div class="post-header">
                             {% if person.thumbnail %}
-                                <img alt="{{ person.title }}" src="{{ person.thumbnail | absolute_url }}">
+                                <img alt="{{ person.title }}" src="{{ person.thumbnail }}">
                             {% else %}
-                                <img alt="{{ person.title }}" src="{{ "/img/placeholder.png" | absolute_url }}>
+                                <img alt="{{ person.title }}" src="{{ "hiro/img/placeholder.png" }}>
                             {% endif %}
                             </div>
                             <div class="post-body">
                                 <h3>
-                                    <a href="{{ person.url | absolute_url }}">{{ person.title }}</a>
+                                    {{ person.title }}
                                 </h3>
                                 {% if person.sub_heading %}
                                 <div class="subtitle">
