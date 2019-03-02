@@ -8,7 +8,7 @@ role: []
 slug: ''
 sub_heading: ''
 tags: []
-thumbnail: "/uploads/2017/11/14/jeffrey-wegrzyn-183858.jpg"
+thumbnail: ''
 layout: person
 
 ---
