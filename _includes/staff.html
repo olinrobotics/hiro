@@ -14,7 +14,7 @@
                     <div class="pure-u-1 pure-u-md-1-4">
                         <div class="post">
                             <div class="post-header">
-                            {% if person.thumbnail %}
+                            {% if person.thumbnail and person.thumbnail != "" %}
                                 <img alt="{{ person.title }}" src="{{ person.thumbnail | absolute_url }}">
                             {% else %}
                                 <img alt="{{ person.title }}" src="{{ "/img/placeholder.png" | absolute_url }}">
