@@ -7,8 +7,7 @@ linkedin: ''
 role: []
 slug: ''
 sub_heading: ''
-tags:
-- radssfdfdsfds fdfasdfd saffdssfd
+tags: []
 thumbnail: "/uploads/2017/11/14/jeffrey-wegrzyn-183858.jpg"
 layout: person
 
