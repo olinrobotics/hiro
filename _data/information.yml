@@ -1,10 +1,13 @@
 ---
 phone: "+1 (781) 292-2556"
 email: olinrobo@gmail.com
+department: Olin Robotics Lab
 address_1: 1000 Olin Way
-address_2: Robotics Lab, 2nd Floor, Academic Center
+address_2: 2nd Floor, Academic Center
 city: Needham
 state: MA
 postal_code: 02492
 country: US
 github: https://github.com/olinrobotics
+olin_web: http://olin.edu
+olinrobot_web: https://olinrobotics.github.io/

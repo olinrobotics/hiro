@@ -7,6 +7,7 @@
 <p>
   {% if site.title %}{{ site.title }}<br />{% endif %}
   <br />
+  {% if info.department %}{{ info.department }}<br />{% endif %}
   {% if info.address_1 %}{{ info.address_1 }}<br />{% endif %}
   {% if info.address_2 %}{{ info.address_2 }}<br />{% endif %}
   {% if info.country and info.state and info.city %}
