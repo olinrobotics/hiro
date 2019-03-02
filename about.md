@@ -1,7 +1,7 @@
 ---
 title: About
 date: 2017-11-01 03:00:00 +0000
-banner_image: "/uploads/banner2.png"
+banner_image: "/uploads/banner2.jpg"
 heading: About HIRo
 sub_heading: Olin Robotics Lab
 layout: landing-page

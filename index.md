@@ -1,6 +1,6 @@
 ---
 title: Home
-banner_image: "/img/banner.png"
+banner_image: "/img/banner.jpg"
 layout: landing-page
 heading: Human Interactions Robotics Laboratory
 partners: []
