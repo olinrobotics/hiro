@@ -1,10 +1,9 @@
 ---
 title: Minh-Khang Vu
 date: 2017-11-14 10:54:31 +0000
-role:
-- 'Engineering: Computing'
+role: []
 thumbnail: "/uploads/2017/11/14/william-stitt-162611.jpg"
-sub_heading: Administration
+sub_heading: 'Engineering: Computing'
 email: ''
 linkedin: ''
 layout: person
