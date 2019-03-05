@@ -8,3 +8,11 @@ fields:
   name: title
   config:
     required: true
+- type: datetime
+  label: DATE
+  name: date
+- type: text
+  name: sub_heading
+  label: SUB HEADING
+  description: Sub heading goes here
+- type: list
