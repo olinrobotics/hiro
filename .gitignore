@@ -61,3 +61,5 @@ fabric.properties
 
 # *.iml
 # modules.xml
+
+_site/*
