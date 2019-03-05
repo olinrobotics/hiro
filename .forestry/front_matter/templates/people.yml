@@ -4,34 +4,36 @@ hide_body: false
 is_partial: false
 fields:
 - type: text
-  label: TITLE
+  label: Title
   name: title
   config:
     required: true
 - type: datetime
-  label: DATE
+  label: Date
   name: date
 - type: text
   name: sub_heading
-  label: SUB HEADING
+  label: Sub Heading
   description: Sub heading goes here
-- type: list
 - type: text
   name: layout
-  label: LAYOUT
   config:
     required: false
+  label: Layout
 - type: file
   label: THUMBNAIL
   name: thumbnail
 - type: list
   name: role
-  label: ROLE
+  label: Role
 - type: text
   name: email
-  label: EMAIL
+  label: Email
 - type: text
   name: linkedin
-  label: LINKEDIN
+  label: LinkedIn
+- type: tag_list
+  name: ''
+  label: ''
 pages:
 - _people/dave-barrett-ph-d.md
