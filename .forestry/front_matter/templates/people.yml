@@ -16,3 +16,20 @@ fields:
   label: SUB HEADING
   description: Sub heading goes here
 - type: list
+- type: text
+  name: layout
+  label: LAYOUT
+  config:
+    required: false
+- type: file
+  label: THUMBNAIL
+  name: thumbnail
+- type: list
+  name: role
+  label: ROLE
+- type: text
+  name: email
+  label: EMAIL
+- type: text
+  name: linkedin
+  label: LINKEDIN
