@@ -1,0 +1,10 @@
+---
+label: People
+hide_body: false
+is_partial: false
+fields:
+- type: text
+  label: TITLE
+  name: title
+  config:
+    required: true
