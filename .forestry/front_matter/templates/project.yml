@@ -1,0 +1,32 @@
+---
+label: Project
+hide_body: false
+is_partial: false
+fields:
+- type: text
+  name: title
+  label: Title
+- type: datetime
+  name: date
+  label: Date
+- type: text
+  name: sub_heading
+  label: Sub Heading
+- type: tag_list
+  name: tags
+  label: Tags
+- type: file
+  name: banner_image
+  label: Banner Image
+- type: textarea
+  name: description
+  label: Description
+- type: text
+  name: slug
+  label: Slug
+- type: text
+  name: layout
+  label: Layout
+  config:
+    required: true
+  default: project
