@@ -20,6 +20,8 @@ fields:
   config:
     required: false
   label: Layout
+  hidden: true
+  default: person
 - type: file
   label: THUMBNAIL
   name: thumbnail
