@@ -9,4 +9,3 @@ linkedin: ''
 layout: person
 
 ---
-A test.
