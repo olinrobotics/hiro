@@ -25,3 +25,6 @@ fields:
   description: post
   hidden: true
   default: post
+- type: tag_list
+  name: tags
+  label: Tags
