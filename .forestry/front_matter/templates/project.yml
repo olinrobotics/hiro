@@ -30,3 +30,6 @@ fields:
   config:
     required: true
   default: project
+- type: image_gallery
+  name: image_slider
+  label: Image Slider
