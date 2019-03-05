@@ -5,14 +5,12 @@ layout: landing-page
 heading: Human Interactions Robotics Laboratory
 partners: []
 services:
-- description: Performing collaborative research and providing services to support
-    the Health Sector.
+- description: Performing collaborative research in Human-Robot Interaction
   heading: Robotics
-  icon: "/uploads/2017/11/13/health.png"
-- description: Performing collaborative research and providing services to support
-    the biotechnology sector.
+  icon: "/uploads/robotics-icon.png"
+- description: Performing collaborative research in Human-Robot Interaction
   heading: Undergraduate Research
-  icon: "/uploads/2017/11/13/biotech.png"
+  icon: "/uploads/research-icon.png"
 sub_heading: Olin College
 textline: ''
 hero_button:
