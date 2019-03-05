@@ -9,6 +9,6 @@ role:
 - Faculty Advisor
 email: ''
 linkedin: ''
-published: false
+'': []
 
 ---
