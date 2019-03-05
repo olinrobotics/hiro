@@ -1,6 +1,6 @@
 ---
 new_page_extension: md
-auto_deploy: false
+auto_deploy: true
 admin_path: ''
 webhook_url: 
 sections:
@@ -30,6 +30,7 @@ build:
   publish_command: bundle exec jekyll build -d _site
   preview_env:
   - JEKYLL_ENV=staging
+  - RUBY_VERSION=2.4.3
   publish_env:
   - JEKYLL_ENV=production
   - RUBY_VERSION=2.4.3
