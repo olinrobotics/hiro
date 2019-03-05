@@ -33,3 +33,5 @@ fields:
 - type: text
   name: linkedin
   label: LINKEDIN
+pages:
+- _people/dave-barrett-ph-d.md
