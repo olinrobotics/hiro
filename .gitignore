@@ -65,3 +65,4 @@ fabric.properties
 # *.iml
 # modules.xml
 venv/*
+_site/*
