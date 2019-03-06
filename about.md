@@ -18,6 +18,6 @@ menu:
     weight: 3
 
 ---
-Human Interactions Robotics Laboratory at Olin College specializes in innovative research to support human-robot interaction research. We are interested in advancing research in areas that are pressing and relevant to path planning, perception as well as AI/ML and regularly develop new collaborative projects to accomplish this goal. 
+Human Interactions Robotics Laboratory at Olin College specializes in innovative research to support the human-robot interaction field. We are interested in advancing research in areas that are pressing and relevant to path planning, perception as well as AI/ML and regularly develop new collaborative projects to accomplish this goal.
 
 Students in the Olin Robotics Lab can get access to cutting edge technologies to further their learning endeavours.
