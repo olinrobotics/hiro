@@ -33,6 +33,6 @@ build:
   - RUBY_VERSION=2.4.3
   publish_env:
   - JEKYLL_ENV=production
-  - RUBY_VERSION=2.4.3
+  - RUBY_VERSION=2.6.2
   preview_output_directory: _site
   output_directory: _site
