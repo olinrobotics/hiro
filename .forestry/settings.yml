@@ -2,7 +2,7 @@
 new_page_extension: md
 auto_deploy: true
 admin_path: ''
-webhook_url:
+webhook_url: 
 sections:
 - type: directory
   path: _people
