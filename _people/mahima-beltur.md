@@ -8,6 +8,5 @@ role: []
 email: ''
 linkedin: ''
 '': []
-published: false
 
 ---
