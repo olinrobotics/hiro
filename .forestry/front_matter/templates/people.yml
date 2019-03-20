@@ -37,5 +37,7 @@ fields:
   name: ''
   label: ''
 pages:
+- _people/mahima-beltur.md
+- _people/jack-mao.md
 - _people/minh-khang-vu.md
 - _people/dave-barrett-ph-d.md
