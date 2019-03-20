@@ -37,6 +37,7 @@ fields:
   name: ''
   label: ''
 pages:
+- _people/richard-gao.md
 - _people/mahima-beltur.md
 - _people/jack-mao.md
 - _people/minh-khang-vu.md
