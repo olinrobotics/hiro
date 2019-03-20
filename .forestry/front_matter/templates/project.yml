@@ -32,3 +32,5 @@ fields:
 - type: image_gallery
   name: image_slider
   label: Image Slider
+pages:
+- _people/audrey-lee.md
