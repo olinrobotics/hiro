@@ -37,4 +37,5 @@ fields:
   name: ''
   label: ''
 pages:
+- _people/minh-khang-vu.md
 - _people/dave-barrett-ph-d.md
