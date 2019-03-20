@@ -6,7 +6,7 @@ undefined: []
 layout: person
 thumbnail: ''
 role:
-- Faculty Advisor
+- advisor
 email: ''
 linkedin: ''
 '': []
