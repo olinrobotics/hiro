@@ -8,6 +8,10 @@ fields:
 - type: datetime
   name: date
   label: Date
+  hidden: false
+  config:
+    required: true
+  default: 2019-03-19 04:00:00 +0000
 - type: text
   name: sub_heading
   label: Sub Heading
