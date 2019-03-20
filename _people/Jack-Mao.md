@@ -6,7 +6,7 @@ email: ''
 linkedin: ''
 role: []
 slug: ''
-sub_heading: ''
+sub_heading: Electrical and Computer Engineering
 tags: []
 thumbnail: ''
 layout: person
