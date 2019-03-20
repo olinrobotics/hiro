@@ -38,6 +38,7 @@ fields:
   name: ''
   label: ''
 pages:
+- _people/electrical-and-computer-engineering.md
 - _people/seung-u-lyu.md
 - _people/richard-gao.md
 - _people/mahima-beltur.md
