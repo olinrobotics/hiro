@@ -27,7 +27,7 @@ use_front_matter_path: false
 file_template: ":filename:"
 build:
   preview_command: bundle exec jekyll build --drafts --unpublished --future -d _site
-  publish_command: bundle exec jekyll build -d _site
+  publish_command: bundle exec jekyll build -d _site --full-index
   preview_env:
   - JEKYLL_ENV=staging
   - RUBY_VERSION=2.6.1
