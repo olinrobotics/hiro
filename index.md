@@ -5,10 +5,10 @@ layout: landing-page
 heading: Human Interactions Robotics Laboratory
 partners: []
 services:
-- description: Performing collaborative research in Human-Robot Interaction
+- description: Advance innovative research in Human-Robot Interaction
   heading: Robotics
   icon: "/uploads/robotics-icon.png"
-- description: Performing collaborative research in Human-Robot Interaction
+- description: Promote undergraduate research to robotics engineering students
   heading: Undergraduate Research
   icon: "/uploads/research-icon.png"
 sub_heading: Olin College
@@ -16,7 +16,7 @@ textline: ''
 hero_button:
   text: Learn more
   href: "/about"
-show_news: true
+show_news: false
 menu:
   navigation:
     identifier: _index
