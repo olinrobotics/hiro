@@ -81,11 +81,11 @@ Whereas a function for evaluating mathematical expressions is built into Python,
 
 For a more complicated expression, such as 3x+1, the nodes must follow the order of operations:
 
-![](/uploads/3x 1tree.PNG)
+![](/hiro/uploads/3x 1tree.PNG)
 
 Unless parentheses are involved, such as in (x+2)/3:
 
-![](/uploads/(x 2)div3tree.PNG)
+![](/hiro/uploads/(x 2)div3tree.PNG)
 
 ##### 2.2.1 Building the Tree
 
