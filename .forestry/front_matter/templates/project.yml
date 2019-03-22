@@ -36,7 +36,7 @@ fields:
 - type: image_gallery
   name: image_slider
   label: Image Slider
-- type: list
+- type: tag_list
   name: members
   label: members
   description: Team members
