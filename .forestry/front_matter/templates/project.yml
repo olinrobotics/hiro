@@ -37,4 +37,5 @@ fields:
   name: image_slider
   label: Image Slider
 pages:
+- _projects/test.md
 - _projects/math-problem-solving.md
