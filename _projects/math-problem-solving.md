@@ -129,5 +129,3 @@ Once a tree has been built from both sides, solving is relatively easy. The code
 \* Math Programming article: \[K Nearest Neighbors and Handwritten Data Classification\]([https://jeremykun.com/2012/08/26/k-nearest-neighbors-and-handwritten-digit-classification/](https://jeremykun.com/2012/08/26/k-nearest-neighbors-and-handwritten-digit-classification/ "https://jeremykun.com/2012/08/26/k-nearest-neighbors-and-handwritten-digit-classification/"))
 
 \* \[MNIST Data Set\]([http://yann.lecun.com/exdb/mnist/](http://yann.lecun.com/exdb/mnist/ "http://yann.lecun.com/exdb/mnist/"))
-
-\*This Github page is currently under construction. Last edited on 4/29/17 by \[C.Novak\]([https://github.com/ConnorNovak](https://github.com/ConnorNovak "https://github.com/ConnorNovak"))*
