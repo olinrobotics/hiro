@@ -8,6 +8,5 @@ banner_image: ''
 description: ''
 slug: ''
 image_slider: []
-published: false
 
 ---
