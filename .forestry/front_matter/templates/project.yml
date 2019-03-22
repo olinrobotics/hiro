@@ -36,6 +36,10 @@ fields:
 - type: image_gallery
   name: image_slider
   label: Image Slider
+- type: list
+  name: members
+  label: members
+  description: Team members
 pages:
 - _projects/test.md
 - _projects/math-problem-solving.md
