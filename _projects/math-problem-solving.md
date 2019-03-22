@@ -12,6 +12,11 @@ description: Edwin's Mathem Problem Solving code gives Edwin the capability to r
   is appealing for demos.
 slug: ''
 image_slider: []
+members:
+- Victoria McDermott
+- Hannah Kolano
+- Connor Novak
+- Matthew Brucker
 
 ---
 Test project
