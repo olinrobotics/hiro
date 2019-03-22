@@ -41,5 +41,4 @@ fields:
   label: members
   description: Team members
 pages:
-- _projects/test.md
 - _projects/math-problem-solving.md
