@@ -9,5 +9,6 @@ state: MA
 postal_code: 02492
 country: US
 github: https://github.com/olinrobotics
+github_subteam: https://github.com/olinrobotics/hiro/
 olin_web: http://olin.edu
 olinrobot_web: https://olinrobotics.github.io/

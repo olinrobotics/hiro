@@ -15,6 +15,7 @@
   {% endif %}
   <br />
   {% if info.phone %}<a href="tel:{{ info.phone }}" title="{{ info.phone }}">{{ info.phone }}</a><br />{% endif %}
-  {% if info.email %}<a href="mailto:{{ info.email }}" title="{{ info.email }}">{{ info.email }}</a>{% endif %}
+  {% if info.email %}<a href="mailto:{{ info.email }}" title="{{ info.email }}">{{ info.email }}</a><br />{% endif %}
+  {% if info.github_subteam %}<a href="{{ info.github_subteam}}">{{ info.github_subteam }}</a>{% endif %}
 </p>
 {% endif %}
