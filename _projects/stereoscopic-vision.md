@@ -27,7 +27,7 @@ We ultimately chose the Hardkernal oCam both because it was a relatively high qu
 
 ## Our Cameras
 
-![Hardkernel Camera](/uploads/ocam.jpg "Hardkernel Camera")
+![Hardkernel Camera](/hiro/uploads/ocam.jpg "Hardkernel Camera")
 
 * Hardkernel oCam
 * Standard M12 lens
@@ -42,7 +42,7 @@ We ultimately chose the Hardkernal oCam both because it was a relatively high qu
 
 We originally planned to hold the oCams steady by CADing and 3D printing two mounts to hold them snugly. We then fixed the mounts in place relative to each other by bolting them to a piece of sheet metal cut to size.
 
-![Camera Mount](/uploads/oCam_Mount.png "Camera Mount")
+![Camera Mount](/hiro/uploads/oCam_Mount.png "Camera Mount")
 
 The bolts weren't sufficient to keep the mounts from shifting minutely, though, and this resulted in offsets in camera calibration. In the end, we merged the two camera mounts into one unified, 3D printed mount.
 
