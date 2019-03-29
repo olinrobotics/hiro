@@ -18,7 +18,7 @@ layout: default
 						<div class="card">
 							<div class="card-header">
 							{% if project.banner_image and project.banner_image != "" %}
-							<img src="{{ project.banner_image | absolute_url }}" alt="{{ project.title }}">
+							<img src="{{ project.banner_image }}" alt="{{ project.title }}">
 							{% else %}
 								<img src="{{ "/img/placeholder.jpg" | absolute_url }}" alt="{{ project.title }}">
 							{% endif %}
