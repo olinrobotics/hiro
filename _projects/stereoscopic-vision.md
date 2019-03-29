@@ -4,7 +4,7 @@ layout: project
 title: Stereoscopic Vision
 sub_heading: Teach Edwin to recognize and remember objects
 tags: []
-banner_image: ''
+banner_image: "/hiro/uploads/Stereoscopic Vision banner"
 description: ''
 slug: ''
 image_slider: []
