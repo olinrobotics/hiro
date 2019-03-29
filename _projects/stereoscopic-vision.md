@@ -2,7 +2,7 @@
 date: 2017-01-29 05:00:00 +0000
 layout: project
 title: Stereoscopic Vision
-sub_heading: Teach Edwin to recognize and remember objects
+sub_heading: Teach Edwin to recognize and remember objects.
 tags: []
 banner_image: "/hiro/uploads/Stereoscopic Vision banner"
 description: ''
