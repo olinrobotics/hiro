@@ -41,4 +41,5 @@ fields:
   label: members
   description: Team members
 pages:
+- _projects/stereoscopic-vision.md
 - _projects/math-problem-solving.md
