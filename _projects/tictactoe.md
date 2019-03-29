@@ -4,7 +4,7 @@ layout: project
 title: TicTacToe
 sub_heading: Edwin can play Tic Tac Toe against another human being.
 tags: []
-banner_image: "/hiro/uploads/TicTacToe Banner.png"
+banner_image: "/hiro/uploads/TicTacToe Banner-1.png"
 description: ''
 slug: ''
 image_slider: []
