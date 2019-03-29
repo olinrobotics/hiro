@@ -19,7 +19,7 @@ The goal of this research was to intuitively teach Edwin to recognize and rememb
 
 In order to identify objects we were interested in "teaching" to Edwin, we developed a stereoscopic camera system that could locate an objects distance from Edwin. We then tagged any objects closer than a certain distance as "significant."
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wFORJR2kNos" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/wFORJR2kNos" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # The Hardware
 
