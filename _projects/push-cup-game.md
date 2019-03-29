@@ -1,5 +1,5 @@
 ---
-date: 2019-03-19 04:00:00 +0000
+date: 2017-01-09 05:00:00 +0000
 layout: project
 title: Push Cup Game
 sub_heading: Edwin and the player take turns pushing the cup, the player pushing the

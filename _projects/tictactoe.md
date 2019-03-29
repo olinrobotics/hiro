@@ -1,5 +1,5 @@
 ---
-date: 2019-03-19 04:00:00 +0000
+date: 2016-05-13 04:00:00 +0000
 layout: project
 title: TicTacToe
 sub_heading: Edwin can play Tic Tac Toe against another human being.
