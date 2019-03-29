@@ -19,3 +19,7 @@ At the Olin Expo Fall 2015, we presented our semester's work, which culminated i
 As seen in the video, it appears that he can only beat humans about half the time.
 
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/yZWK3U_afgc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+He can also play against himself too!
+
+<iframe width="100%" height="415"  src="https://www.youtube.com/embed/IV-uooCVgGs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
