@@ -5,8 +5,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Richard Gao - Human Interactions Robotics Laboratory</title>
-  <meta name="description" content="Human Interactions Robotics Laboratory is an Olin Robotics Team">
+  <title>Gesture Characterization - Human Interactions Robotics Laboratory</title>
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="/hiro/img/favicon.jpg"/>
   <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.6.0/pure-min.css">
@@ -84,13 +84,9 @@
 			<div class="pure-u-1 pure-u-md-1">
 				<div class="content content-narrow">
 				
-					<div class="profile-photo">
-					<img src="/hiro/uploads/richard-gao.jpg" alt="Richard Gao">
-					</div>
-				
-					<h2>Richard Gao</h2>
+					<h2>Gesture Characterization</h2>
 					
-					<h3>Electrical and Computer Engineering</h3>
+					<h3>Enable Edwin to interact with a user by identifying the user's movement and classifying it.</h3>
 				
 				</div>
 			</div>
@@ -118,12 +114,12 @@
 									
 									
 									<li>
-										<a href="/hiro/about/">About</a>&nbsp;<i class="fa fa-chevron-right"></i>
+										<a href="/hiro/projects/">Projects</a>&nbsp;<i class="fa fa-chevron-right"></i>
 									</li>
 								
 							
 								
-									<li class="active">Richard Gao</li>
+									<li class="active">Gesture Characterization</li>
 								
 							
 						</ul>
@@ -136,8 +132,59 @@
 <div class="container pure-g">
     <div class="pure-u-1">
         <div class="content content-narrow">
-            
+            <div class="meta">
+                
+                <div class="post-date">19 Mar 2019</div>
+                
+                
+            </div>
 
+            <h1 id="description">Description</h1>
+
+<p>Gesture characterization is a script that enables Edwin to interact with a user by identifying the user’s movement and classifying it. The characterization is determined using the k-nearest neighbours machine learning algorithm, which can classify motions into gesture groups. In order to implement this, we create bag files of certain gestures, which became the training data for the k-NN machine learning algorithm.</p>
+
+<iframe width="100%" height="415" src="https://www.youtube.com/embed/xjIaE0qrZJk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>One of the applications of this gesture characterization is for a game of Simon Says where Edwin is Simon. Using this script, Edwin can determine whether the user is correctly executing the command of Simon when they have a command with “Simon says”.</p>
+
+<iframe width="100%" height="415" src="https://www.youtube.com/embed/QB8nBHxtrKg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h2 id="tool-used">Tool Used:</h2>
+
+<ul>
+  <li>
+    <p>Ubuntu 14.04</p>
+  </li>
+  <li>
+    <p>ROS-indigo</p>
+  </li>
+  <li>
+    <p>Python</p>
+  </li>
+</ul>
+
+<h1 id="technical-discussion">Technical Discussion:</h1>
+
+<p>We used K-nearest neighbour as our machine learning algorithm. Before we start, every skeleton is moved so that its neck is on the origin. By doing that, we eliminate the spatial differences that can cause inaccuracy. We then take the x,y,z coordinates of each skeleton points as our features. After training the model with gesture samples, Edwin will be able to predict any future gesture inputs.</p>
+
+<p>In order for Edwin to detect a continuous gesture, we ask the Edwin to detect a few key frames the gesture. If all the frames are present over time, Edwin knows that the player is doing the continuous gesture.</p>
+
+
+            
+            <hr>
+            <h2> Team Members </h2>
+            <ul>
+                
+                <li>
+                    Sophia Nielsen
+                </li>
+                
+                <li>
+                    Kevin Zhang
+                </li>
+                
+            </ul>
+            
         </div>
     </div>
 </div>
