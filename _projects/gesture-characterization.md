@@ -5,7 +5,7 @@ title: Gesture Characterization
 sub_heading: Enable Edwin to interact with a user by identifying the user's movement
   and classifying it.
 tags: []
-banner_image: ''
+banner_image: "/hiro/uploads/Follow Me Banner.png"
 description: ''
 slug: ''
 image_slider: []
