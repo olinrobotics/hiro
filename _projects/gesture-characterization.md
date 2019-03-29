@@ -1,5 +1,5 @@
 ---
-date: 2019-03-19 04:00:00 +0000
+date: 2017-01-12 05:00:00 +0000
 layout: project
 title: Gesture Characterization
 sub_heading: Enable Edwin to interact with a user by identifying the user's movement
