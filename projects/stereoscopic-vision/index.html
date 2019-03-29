@@ -1,0 +1,295 @@
+
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Stereoscopic Vision - Human Interactions Robotics Laboratory</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/hiro/img/favicon.jpg"/>
+  <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.6.0/pure-min.css">
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/hiro/css/main.min.css">
+</head>
+<body>
+
+
+
+
+
+<header class="site-header">
+  <div class="container">
+      <h1 class="logo">
+        <a href="/hiro/"></a>
+      </h1>
+      <nav class="main-nav">
+        <ul class="navigation">
+          
+          <li class="">
+            
+            <a href="/hiro/">
+                  Home
+                  
+                </a>
+          </li>
+          
+          <li class="">
+            
+            <a href="/hiro/about/">
+                  About
+                  
+                </a>
+          </li>
+          
+          <li class="">
+            
+            <a href="/hiro/posts/">
+                  Posts
+                  
+                </a>
+          </li>
+          
+          <li class="">
+            
+            <a href="/hiro/projects/">
+                  Projects
+                  
+                </a>
+          </li>
+          
+          <li class="">
+            
+            <a href="/hiro/contact/">
+                  Contact
+                  
+                </a>
+          </li>
+          
+        </ul>
+    </nav>
+  </div>
+</header>
+
+
+
+	<header class="plain-header">
+		<div class="container pure-g">
+			<div class="pure-u-1 pure-u-md-1">
+				<div class="content content-narrow">
+				
+					<h2>Stereoscopic Vision</h2>
+					
+					<h3>Teach Edwin to recognize and remember objects</h3>
+				
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+
+
+
+
+
+
+
+<nav class="breadcrumbs">
+	<div class="container">
+		<div class="pure-u-1">
+        <div class="content content-narrow">
+					
+						<ul>
+							<li><a href="/hiro/">Home</a>&nbsp;<i class="fa fa-chevron-right"></i></li>
+							
+								
+									
+									
+									
+									<li>
+										<a href="/hiro/projects/">Projects</a>&nbsp;<i class="fa fa-chevron-right"></i>
+									</li>
+								
+							
+								
+									<li class="active">Stereoscopic Vision</li>
+								
+							
+						</ul>
+        </div>
+    </div>
+	</div>
+</nav>
+
+
+<div class="container pure-g">
+    <div class="pure-u-1">
+        <div class="content content-narrow">
+            <div class="meta">
+                
+                <div class="post-date">29 Jan 2017</div>
+                
+                
+            </div>
+
+            <h1 id="overview">Overview</h1>
+
+<p>The goal of this research was to intuitively teach Edwin to recognize and remember objects, thus creating a robust tool for dataset generation. This decreased the amount of time we would need to spend generating datasets of individual objects for any future machine learning.</p>
+
+<p>In order to identify objects we were interested in “teaching” to Edwin, we developed a stereoscopic camera system that could locate an objects distance from Edwin. We then tagged any objects closer than a certain distance as “significant.”</p>
+
+<h1 id="the-hardware">The Hardware</h1>
+
+<p>Starting this project, we weren’t sure what features our prospective cameras would need.</p>
+
+<p>We ultimately chose the Hardkernal oCam both because it was a relatively high quality camera (which could be focused to different distances) and because we had a pair of oCams from a previous project (allowing us to start experimenting  with vision right away.)</p>
+
+<h2 id="our-cameras">Our Cameras</h2>
+
+<p><img src="/uploads/ocam.jpg" alt="Hardkernel Camera" title="Hardkernel Camera" /></p>
+
+<ul>
+  <li>Hardkernel oCam</li>
+  <li>Standard M12 lens</li>
+  <li>3.6mm focal length</li>
+  <li>65 deg. field of view (FOV)</li>
+  <li>120 frames per second (fps) at a resolution of 640x480 pixels</li>
+  <li>5 megapixels (MP)</li>
+  <li>Micro-USB 3.0 connection port</li>
+  <li>35 grams</li>
+</ul>
+
+<h2 id="the-camera-mount">The camera mount</h2>
+
+<p>We originally planned to hold the oCams steady by CADing and 3D printing two mounts to hold them snugly. We then fixed the mounts in place relative to each other by bolting them to a piece of sheet metal cut to size.</p>
+
+<p><img src="/uploads/oCam_Mount.png" alt="Camera Mount" title="Camera Mount" /></p>
+
+<p>The bolts weren’t sufficient to keep the mounts from shifting minutely, though, and this resulted in offsets in camera calibration. In the end, we merged the two camera mounts into one unified, 3D printed mount.</p>
+
+<p>This was a better solution, as the single mount was structurally stiffer than two constrained single camera mounts.</p>
+
+<p>The mount was held in place inside the head through 4 screw “pins,” (2 on either side of the head). The pin forces exerted by the screws were sufficient to hold the mount immobile in the head under stress.</p>
+
+<h2 id="future-improvements">Future improvements</h2>
+
+<h3 id="an-additional-clip-on-the-back-of-the-camera-mount-to-secure-the-cable-to-the-mount">An additional clip on the back of the camera mount (to secure the cable to the mount)</h3>
+
+<p>While our mount design was adequate for holding our cameras steady, the micro-USB 3.0 to USB 2.0 cables had a tendency to come unplugged from the cameras when handled or disturbed too much. We resoldered the micro-USB 3.0 female ports on the oCams, which reduced instances of this problem, but did not completely solve them.</p>
+
+<h3 id="better-and-cheaper-cameras">Better (and cheaper) cameras</h3>
+
+<p>Having used the oCams for a semester, we have identified the important factors when choosing a camera for visual processing.</p>
+
+<p>Of these factors, the most relevant to us are:</p>
+
+<ol>
+  <li>The shutter (global v. rolling)</li>
+  <li>Camera synchronization</li>
+  <li>Field of view (Wide v. narrow)</li>
+  <li>Color v. Black and White</li>
+</ol>
+
+<p><strong>Global shutter:</strong> Since our cameras are mounted inside Edwin’s head, which moves fairly often as he executes behaviors, we need to be able to capture pixels in our images instantaneously, rather than sequentially. This will allow us to avoid image blurs and distortions from the motion of the cameras, which could potentially interfere with our visual processing.</p>
+
+<p><strong>Camera synchronization:</strong> If we could synchronize video feeds from both cameras, we would eliminate a potential source of error in our visual processing.</p>
+
+<p><strong>Wide FOV:</strong> If we can provide more data for our visual processing, we can cope with missing information more easily, thus creating a more accurate distance estimate overall.</p>
+
+<p><strong>Color:</strong> While most visual processing only requires black and white camera feeds, we also account for the dominant color of an object, which requires a color camera.</p>
+
+
+            
+            <hr>
+            <h2> Team Members </h2>
+            <ul>
+                
+                <li>
+                    Lydia Zuehsow
+                </li>
+                
+                <li>
+                    Yoonyoung Cho (Jamie)
+                </li>
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+
+<footer class="site-footer">
+	<div class="container pure-g">
+        <div class="footer-col pure-u-1 pure-u-md-1-4">
+            <img src="/hiro/img/logo-white.png" alt="" class="footer-logo">
+        </div>
+        <div class="footer-col pure-u-1 pure-u-md-1-4">
+            <h3>About HIRo</h3>
+            <ul>
+            
+                <li><a href="/hiro/projects/">Projects</a></li>
+            
+                <li><a href="/hiro/about/">About</a></li>
+            
+                <li><a href="/hiro/posts/">Posts</a></li>
+            
+            </ul>
+        </div>
+        <div class="footer-col pure-u-1 pure-u-md-1-4">
+            <h3>Projects</h3>
+            <ul>
+            
+                <li><a href="/hiro/projects/math-problem-solving/">Math Problem Solving</a></li>
+            
+                <li><a href="/hiro/projects/stereoscopic-vision/">Stereoscopic Vision</a></li>
+            
+            
+                <li><a href="/hiro/projects/">See all projects</a></li>
+            
+            </ul>
+        </div>
+        <div class="footer-col pure-u-1 pure-u-md-1-4">
+            <h3>Contact</h3>
+            
+
+
+
+<p>
+  Human Interactions Robotics Laboratory<br />
+  <br />
+  Olin Robotics Lab<br />
+  1000 Olin Way<br />
+  2nd Floor, Academic Center<br />
+  
+  Needham, MA, US<br />
+  
+  <br />
+  <a href="tel:+1 (781) 292-2556" title="+1 (781) 292-2556">+1 (781) 292-2556</a><br />
+  <a href="mailto:olinrobo@gmail.com" title="olinrobo@gmail.com">olinrobo@gmail.com</a><br />
+  <a href="https://github.com/olinrobotics/hiro/">https://github.com/olinrobotics/hiro/</a>
+</p>
+
+
+        </div>
+	</div>
+	<div class="copyright">
+        <p>
+            &copy;2019 Human Interactions Robotics Laboratory is maintained by <span><a
+            href="https://olinrobotics.github.io/" rel="noopener" target="_blank" >Olin Robotics Lab</a>.</span> <br>All Rights Reserved<br>
+		</p>
+	</div>
+</footer>
+<!-- Javascript -->
+<script src="/hiro/js/main.js" type="text/javascript"></script>
+</body>
+</html>
+
+
