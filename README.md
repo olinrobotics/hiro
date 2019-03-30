@@ -1,9 +1,9 @@
 # Human Interactions Robotics Laboratory
 UR5 interactive co-working twin robotic arms, Castor and Pollux.
 
-Website: https://olinrobotics.github.io/hiro/
+Website: [olinrobotics.github.io/hiro/](https://olinrobotics.github.io/hiro/)
 
-Arm Manual: http://strobotics.com/manuals/R17%20manual.pdf
+UR5/CB3 Arm Manual: https://www.usna.edu/Users/weapron/kutzer/_files/documents/User%20Manual,%20UR5.pdf
 
 ## Troubleshooting
 
