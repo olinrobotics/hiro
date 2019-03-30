@@ -41,8 +41,8 @@ fields:
   label: members
   description: Team members
 pages:
-- _projects/push-cup-game.md
 - _projects/gesture-characterization.md
 - _projects/tictactoe.md
+- _projects/push-cup-game.md
 - _projects/stereoscopic-vision.md
 - _projects/math-problem-solving.md
