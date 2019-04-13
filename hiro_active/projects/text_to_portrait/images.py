@@ -1,4 +1,8 @@
+"""
+Scrapes google images for a given seach query and creates a directory of images to write to
+"""
 import requests, errno, shutil, os, sys, json
+from credential import key
 
 def get_page(page_url):
     try:
@@ -38,8 +42,8 @@ def download_img(urls, name):
 
 # Download images from google custom search
 def fetch_image(name):
-    # Fetch images from custom goolge search
-    search_url = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyCdKWliVigMt35I7pLM2zqKHftpaFxdCR0&cx=016561402344353211294:au-xlsd-kvu&q=' + name + '&searchType=image&imgSize=large&filetype=jpg'
+    # Fetch images from custom goolge search, Replace with your own api key
+    search_url = 'https://www.googleapis.com/customsearch/v1?key=' + key + '&cx=016561402344353211294:au-xlsd-kvu&q=' + name + '&searchType=image&imgSize=large&filetype=jpg'
     search = get_page(search_url)
 
     # Manually input url if google image url not available

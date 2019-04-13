@@ -1,16 +1,21 @@
 """
 By Richard Gao & HK Rho, 2018
-This is the master script of displaying the image outline in gui
+This is the master script of the text_to_portrait project.
 This script will:
+- Prompt user to input what the robot should draw
+- Scrape google images for pictures to download
+- Display a gui interface that allows users to select which picture for the robot to draw and what parameters (tolerance, speed) to use
+- Display what line the robot is drawing simultaneously
 
 Dependencies:
-
+opencv, matplotlib, rospy
 
 To use:
 - Open Terminal and run the code below:
 roslaunch ur_modern_driver ur5_bringup.launch robot_ip:=10.42.0.175
 rosrun hiro ur5_arm_node.py _robot_ip:=10.42.0.175
 python2 display_image.py
+[Input what image to draw]
 """
 
 import os, shutil, time, math
@@ -76,6 +81,9 @@ def reset_images():
     '''
     Resets the images directory by deleting all files and directories within
     '''
+    if not os.path.exists("images"):
+        return
+
     for filename in os.listdir('images'):
         shutil.rmtree('images/' + filename)
 
@@ -751,7 +759,8 @@ if __name__ == '__main__':
     edge_img = get_edge(images[0], INIT_LOWER, INIT_UPPER)
     plots[0] = edge_img
 
-    gripper = GripperController()
+    # Uncomment this out when connecting with arms. Leave commented if you just want to see the gui
+    # gripper = GripperController()
 
     plot_image(name.upper())
 

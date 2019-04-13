@@ -1,3 +1,6 @@
+"""
+Converts picture to text
+"""
 from PIL import Image
 import pytesseract
 import argparse

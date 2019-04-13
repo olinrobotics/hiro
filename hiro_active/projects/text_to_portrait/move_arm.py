@@ -1,5 +1,6 @@
-#!/usr/bin/env python
-
+"""
+Defines arm gestures, controlling how the arms should move
+"""
 import rospy
 import rospkg
 import time
