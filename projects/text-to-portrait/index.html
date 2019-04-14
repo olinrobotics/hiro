@@ -5,8 +5,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Projects - Human Interactions Robotics Laboratory</title>
-  <meta name="description" content="Projects by HIRo">
+  <title>text-to-portrait - Human Interactions Robotics Laboratory</title>
+  <meta name="description" content="Text to portrait is a script that allows users to input what image they want Castor or Pollux (UR5 arms) to draw. Using the Google custom search API, it downloads the first 10 images of a specific search query. It then uses OpenCV to extract the edges of the images and translates it to coordinates for the arm to move in. A GUI is also displayed to help users select which image to draw and to control certain parameters like thresholds and drawing speed.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="/hiro/img/favicon.jpg"/>
   <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.6.0/pure-min.css">
@@ -56,7 +56,7 @@
                 </a>
           </li>
           
-          <li class="current">
+          <li class="">
             
             <a href="/hiro/projects/">
                   Projects
@@ -79,17 +79,20 @@
 
 
 
-	<header class="plain-header">
+	<header id="banner" style="background-image: url('/hiro/uploads/preview.jpg');">
 		<div class="container pure-g">
 			<div class="pure-u-1 pure-u-md-1">
-				<div class="content content-narrow">
-				
-					<h2>Projects</h2>
+				<header class="call-to-action">
+					<h1>text-to-portrait</h1>
+					
+						<h2>Allow an UR5 arm to draw any picture a user wants.</h2>
+					
 					
 				</div>
-			</div>
+			</header>
 		</div>
 	</header>
+	
 
 
 
@@ -102,13 +105,22 @@
 <nav class="breadcrumbs">
 	<div class="container">
 		<div class="pure-u-1">
-        <div class="content ">
+        <div class="content content-narrow">
 					
 						<ul>
 							<li><a href="/hiro/">Home</a>&nbsp;<i class="fa fa-chevron-right"></i></li>
 							
 								
-									<li class="active">Projects</li>
+									
+									
+									
+									<li>
+										<a href="/hiro/projects/">Projects</a>&nbsp;<i class="fa fa-chevron-right"></i>
+									</li>
+								
+							
+								
+									<li class="active">text-to-portrait</li>
 								
 							
 						</ul>
@@ -118,93 +130,67 @@
 </nav>
 
 
-<div class="content">
-    <div class="grid-layout">
-        <div class="container pure-g">
-            
-            <div class="pure-u-1 pure-u-md-1-3">
-                <div class="card">
-                    <div class="card-header">
-                        
-                        <img src="/hiro/uploads/Math Solving Banner.png" alt="Math Problem Solving">
-                        
-                    </div>
-                    <div class="card-body">
-                        <h3><a href="/hiro/projects/math-problem-solving/">Math Problem Solving</a></h3>
-                        <p>Edwin's Math Problem Solving code gives Edwin the capability to read a math problem, solve...</p>
-                    </div>
-                </div>
+<div class="container pure-g">
+    <div class="pure-u-1">
+        <div class="content content-narrow">
+            <div class="meta">
+                
+                <div class="post-date">19 Mar 2019</div>
+                
+                
             </div>
+
+            <h1 id="text-to-portrait">text-to-portrait</h1>
+
+<p>Allow an UR5 arm to draw any picture that a user wants.</p>
+
+<h2 id="description">Description</h2>
+
+<p>Text to portrait is a script that allows users to input what image they want Castor or Pollux (UR5 arms) to draw. Using the google custom search api, it downloads the first 10 images of a specific search query. It then uses opencv to extract the edges of the images and translates it to coordinates for the arm to move in. A gui is also displayed to help users select which image to draw and to control certain parameters like thresholds and drawing speed.</p>
+
+<p><img src="/hiro/uploads/pikachu_1.png" alt="" /></p>
+
+<p><img src="/hiro/uploads/pikachu_2.png" alt="" /></p>
+
+<p><img src="/hiro/uploads/katamari.png" alt="" /></p>
+
+<h2 id="demo-video">Demo Video</h2>
+
+<iframe width="100%" height="415" src="https://www.youtube.com/embed/_iO4P9R-ilU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h2 id="tools-used">Tools Used</h2>
+
+<p>* Ubuntu 16.04</p>
+
+<p>* Ros-kinetic</p>
+
+<p>* Python</p>
+
+<p>* OpenCV</p>
+
+<p>* Matplotlib</p>
+
+<h2 id="team-members">Team Members</h2>
+
+<p>* Richard Gao</p>
+
+<p>* HK Rho</p>
+
+
             
-            <div class="pure-u-1 pure-u-md-1-3">
-                <div class="card">
-                    <div class="card-header">
-                        
-                        <img src="/hiro/uploads/TicTacToe Banner-1.png" alt="TicTacToe">
-                        
-                    </div>
-                    <div class="card-body">
-                        <h3><a href="/hiro/projects/tictactoe/">TicTacToe</a></h3>
-                        <p>Edwin can play Tic Tac Toe against another human being.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pure-u-1 pure-u-md-1-3">
-                <div class="card">
-                    <div class="card-header">
-                        
-                        <img src="/hiro/uploads/Push Cup Game Banner.png" alt="Push Cup Game">
-                        
-                    </div>
-                    <div class="card-body">
-                        <h3><a href="/hiro/projects/push-cup-game/">Push Cup Game</a></h3>
-                        <p>Edwin and the player take turns pushing the cup, the player pushing the cup off...</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pure-u-1 pure-u-md-1-3">
-                <div class="card">
-                    <div class="card-header">
-                        
-                        <img src="/hiro/uploads/Follow Me Banner.png" alt="Gesture Characterization">
-                        
-                    </div>
-                    <div class="card-body">
-                        <h3><a href="/hiro/projects/gesture-characterization/">Gesture Characterization</a></h3>
-                        <p>Enable Edwin to interact with a user by identifying the user's movement and classifying it....</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pure-u-1 pure-u-md-1-3">
-                <div class="card">
-                    <div class="card-header">
-                        
-                        <img src="/hiro/uploads/Stereoscopic Vision banner" alt="Stereoscopic Vision">
-                        
-                    </div>
-                    <div class="card-body">
-                        <h3><a href="/hiro/projects/stereoscopic-vision/">Stereoscopic Vision</a></h3>
-                        <p>Teach Edwin to recognize and remember objects.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pure-u-1 pure-u-md-1-3">
-                <div class="card">
-                    <div class="card-header">
-                        
-                        <img src="/hiro/uploads/preview.jpg" alt="text-to-portrait">
-                        
-                    </div>
-                    <div class="card-body">
-                        <h3><a href="/hiro/projects/text-to-portrait/">text-to-portrait</a></h3>
-                        <p>Allow an UR5 arm to draw any picture a user wants.</p>
-                    </div>
-                </div>
-            </div>
+            <hr>
+            <h2> Team Members </h2>
+            <ul>
+                
+                <li>
+                    Richard Gao  
+                </li>
+                
+                <li>
+                    HK Rho
+                </li>
+                
+            </ul>
             
         </div>
     </div>
