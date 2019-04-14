@@ -16,7 +16,6 @@ image_slider: []
 members:
 - 'Richard Gao  '
 - HK Rho
-published: false
 
 ---
 # text-to-portrait
@@ -35,7 +34,7 @@ Text to portrait is a script that allows users to input what image they want Cas
 
 ## Demo Video
 
-<iframe width="560" height="315" src="[https://www.youtube.com/embed/_iO4P9R-ilU](https://www.youtube.com/embed/_iO4P9R-ilU "https://www.youtube.com/embed/_iO4P9R-ilU")" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="415" src="https://www.youtube.com/embed/_iO4P9R-ilU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Tools Used
 
@@ -51,6 +50,6 @@ Text to portrait is a script that allows users to input what image they want Cas
 
 ## Team Members
 
-\* Richard Gao  
+\* Richard Gao
 
 \* HK Rho
