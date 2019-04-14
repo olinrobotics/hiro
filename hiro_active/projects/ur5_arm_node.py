@@ -14,15 +14,11 @@ import urx
 """
 Wrapper for UR5 robotic arm
 Direct requests to the UR5 arm should be sent through this node
-
 Arm can be used via joints(ROS) or via XYZ coordinates(TCP)
-
 Note: if scripts or arm ever time out or freeze up, then just restart scripts and restart
 the arm. It's just that there might be big load on the TCP/ROS connections.
-
 Before this, the UR driver needs to be brought online:
 roslaunch ur_modern_driver ur5_bringup.launch robot_ip:=10.42.0.175 or 10.42.0.54
-
 then make sure to run this code with _robot_ip:=10.42.0.175 or 10.42.0.54
 """
 
@@ -97,7 +93,6 @@ class Arm():
     def move_to_point(self, pose):
         """
         move to a pose, a.k.a. a XYZ coordinate (with rotational vectors Rx Ry Rz)
-
         Note: move_to_point works only for small-medium scale movements. Because the joints
         can move from -360 to 360 (720 degree rotation), if the difference in moving is too far, it can
         interpret its movement as the +- 360 coordinate, which is equivalent. Therefore, XYZ movement should
@@ -292,6 +287,17 @@ class Arm():
         ### Chess Game Gestures
         self.gestures["chess_hover"] = [Route([90, -102.97, 77.89, -67.77, -90, 0],2)]
 
+        ### Portrait Gestures
+        self.gestures["portrait_reset"] = [Route([0, -90, 0, -90, 0, 0], 5)]
+        self.gestures["portrait_hover"] = [Route([90, -102.97, 77.89, -67.77, -90, 0], 5)]
+        self.gestures["portrait_ready"] = [Route([68.12, -43.69, 23.47, -72, -89.81, -17.26], 5)]
+        self.gestures["portrait_top_right"] = [Route([39.98, -95, 113, -109, -88, -51] ,5)]
+        self.gestures["portrait_bottom_right"] = [Route([114, -92, 107, -106, -91, 23] ,5)]
+        self.gestures["portrait_bounds"] = [Route([90, -102.97, 77.89, -67.77, -90, 0], 5), Route([68.12, -43.69, 23.47, -72, -89.81, -17.26], 5),
+                                            Route([39.98, -95, 113, -109, -88, -51] ,5), Route([114, -92, 107, -106, -91, 23] ,5)]
+        # self.gestures["portrait_origin"] = [Route([64.12, -36.98, 36.44, -92.19, -89.66, -21.16], 5)]
+
+
         ### IDLE GESTURES
         self.gestures["idle_stare_1"] = [Route([-40.20, -88.37, -23.93, -66.92, 76.21, 0], 2)]
         self.gestures["idle_stare_2"] = [Route([64.54, -86.64, -94.69, 8.90, 76.21, 0], 2)]
@@ -481,4 +487,4 @@ if __name__ == '__main__':
     # a.test_run()
     # a.coordinator.close()
     # a.home_robot()
-    # a.coordinator.close()
+# a.coordinator.close()
