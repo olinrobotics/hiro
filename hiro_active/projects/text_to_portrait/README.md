@@ -19,5 +19,5 @@ Text to portrait is a script that allows users to input what image they want Cas
 * Matplotlib
 
 ## Team Members
-Richard Gao  
-HK Rho
+* Richard Gao  
+* HK Rho

@@ -1,28 +1,29 @@
 """
 Defines arm gestures, controlling how the arms should move
 """
-import rospy
-import rospkg
 import time
+
+import rospy
 from std_msgs.msg import String
 
+
 class DrawArm():
-    '''
+    """
     This is the code to move the UR5 arms for the Fall 18 HIRo project to draw portraits
     of celebrities using OCR.
     This module draws the portraits by moving the arm with a sharpie in the gripper to
     discrete xyz positions
-    '''
+    """
 
     def __init__(self):
         # rospy.init_node("draw_arm", anonymous=True)
-        
-        #--------CASTOR----------
+
+        # --------CASTOR----------
         # self.name = 'castor'
         # self.coordinates_pub_castor = rospy.Publisher("/coordinates_cmd_castor", String, queue_size=10)
         # self.joints_pub_castor = rospy.Publisher("/behaviors_cmd_castor", String, queue_size=10)
 
-        #--------POLLOX----------
+        # --------POLLOX----------
         self.name = 'pollux'
         self.coordinates_pub_pollux = rospy.Publisher("/coordinates_cmd_pollux", String, queue_size=10)
         self.joints_pub_pollux = rospy.Publisher("/behaviors_cmd_pollux", String, queue_size=10)
@@ -59,6 +60,7 @@ class DrawArm():
                 return
             except KeyboardInterrupt:
                 break
+
 
 if __name__ == "__main__":
     draw = DrawArm()

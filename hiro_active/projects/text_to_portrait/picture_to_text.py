@@ -22,11 +22,11 @@ while True:
         break
     k = cv2.waitKey(1)
 
-    if k%256 == 27:
+    if k % 256 == 27:
         # ESC pressed
         print("Escape hit, closing...")
         break
-    elif k%256 == 32:
+    elif k % 256 == 32:
         # SPACE pressed
         img_name = "opencv_frame_{}.png".format(img_counter)
         cv2.imwrite(img_name, frame)
@@ -41,10 +41,10 @@ cv2.destroyAllWindows()
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
-#ap.add_argument("-i", "--image", required=True,
+# ap.add_argument("-i", "--image", required=True,
 #	help="path to input image to be OCR'd")
 ap.add_argument("-p", "--preprocess", type=str, default="thresh",
-	help="type of preprocessing to be done")
+                help="type of preprocessing to be done")
 args = vars(ap.parse_args())
 
 # load the example image and convert it to grayscale
@@ -56,13 +56,13 @@ cv2.imshow("Image", gray)
 # check to see if we should apply thresholding to preprocess the
 # image
 if args["preprocess"] == "thresh":
-	gray = cv2.threshold(gray, 0, 255,
-		cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
+    gray = cv2.threshold(gray, 0, 255,
+                         cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
 
 # make a check to see if median blurring should be done to remove
 # noise
 elif args["preprocess"] == "blur":
-	gray = cv2.medianBlur(gray, 3)
+    gray = cv2.medianBlur(gray, 3)
 
 # write the grayscale image to disk as a temporary file so we can
 # apply OCR to it
