@@ -38,18 +38,8 @@ Text to portrait is a script that allows users to input what image they want Cas
 
 ## Tools Used
 
-\* Ubuntu 16.04
-
-\* Ros-kinetic
-
-\* Python
-
-\* OpenCV
-
-\* Matplotlib
-
-## Team Members
-
-\* Richard Gao
-
-\* HK Rho
+* Ubuntu 16.04
+* ROS kinetic
+* Python
+* OpenCV
+* Matplotlib
