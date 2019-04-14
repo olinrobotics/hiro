@@ -41,6 +41,7 @@ fields:
   label: members
   description: Team members
 pages:
+- _projects/text-to-portrait.md
 - _projects/math-problem-solving.md
 - _projects/gesture-characterization.md
 - _projects/tictactoe.md
