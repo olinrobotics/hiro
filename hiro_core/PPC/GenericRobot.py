@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 """
 A generic class created to work with any robot controlled by the MoveIt! interface.
-It has basic functions to retrieve information of the robot and to control all the
-move groups (via either set a pose goal or joint values)
+It has basic functions to retrieve robot information and to control all the
+move groups belonging to the robot (by setting either the pose goal or joint values).
 """
 import sys
 
 import moveit_commander
 import rospy
 import geometry_msgs.msg
+
 
 class GenericRobot(object):
 
@@ -17,6 +18,13 @@ class GenericRobot(object):
         rospy.init_node(node_name, anonymous=True)
         self.robot = moveit_commander.RobotCommander()
         self.scene = moveit_commander.PlanningSceneInterface()
+        rospy.sleep(0.2)
+        ground_pose = moveit_commander.PoseStamped()
+        ground_pose.header.frame_id = self.robot.get_planning_frame()
+        ground_pose.pose.position.x = 0
+        ground_pose.pose.position.y = 0
+        ground_pose.pose.position.z = 0
+        self.scene.add_plane("ground", ground_pose)
         self.group_names = self.robot.get_group_names()
         self.move_groups = {}
         for name in self.group_names:
@@ -66,6 +74,11 @@ class GenericRobot(object):
         """
         is_success = False
         if self.contains(group_name):
+            current_joints = robot.get_current_joint_values(move_group)
+            if len(current_joints) != len(joint_goal):
+                print "Current joints are not the same as goal joints."
+                return is_success
+
             is_success = self.move_groups[group_name].go(joint_goal, wait=True)
             self.move_groups[group_name].stop()
 
@@ -76,7 +89,7 @@ class GenericRobot(object):
         return self.robot.get_current_state()
 
     def get_current_joint_values(self, group_name):
-        # type: (str) -> str
+        # type: (str) -> list
         if self.contains(group_name):
             return self.move_groups[group_name].get_current_joint_values()
 
@@ -116,5 +129,3 @@ if __name__ == '__main__':
     pose_goal.position.y = 0.3
     pose_goal.position.z = 0.5
     print robot.set_pose_goal(move_group, pose_goal)
-
-
