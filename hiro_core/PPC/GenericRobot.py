@@ -19,12 +19,16 @@ class GenericRobot(object):
         self.robot = moveit_commander.RobotCommander()
         self.scene = moveit_commander.PlanningSceneInterface()
         rospy.sleep(0.2)
+
+        # Init ground pose
         ground_pose = moveit_commander.PoseStamped()
         ground_pose.header.frame_id = self.robot.get_planning_frame()
         ground_pose.pose.position.x = 0
         ground_pose.pose.position.y = 0
         ground_pose.pose.position.z = 0
         self.scene.add_plane("ground", ground_pose)
+
+        # Find all available group names of the robot
         self.group_names = self.robot.get_group_names()
         self.move_groups = {}
         for name in self.group_names:
@@ -105,7 +109,6 @@ class GenericRobot(object):
 
 
 if __name__ == '__main__':
-    import geometry_msgs.msg
     from math import pi
 
     robot = GenericRobot()
@@ -119,7 +122,7 @@ if __name__ == '__main__':
 
     print "============ Moving by updating joint states"
     joint_goal = robot.get_current_joint_values(move_group)
-    joint_goal[2] += pi / 4
+    joint_goal[2] += pi / 10
     print robot.update_joint_values(move_group, joint_goal)
 
     print "============ Moving using pose goal"
