@@ -29,6 +29,8 @@ find_package(OpenGL REQUIRED)
 #Find GLUT
 find_package(GLUT REQUIRED)
 
+catkin_python_setup()
+
 ## Generate messages in the 'msg' folder
 add_message_files(
 	DIRECTORY

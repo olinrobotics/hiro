@@ -1,5 +1,6 @@
+#!/usr/bin/env python
 import matplotlib.pyplot as plt
-from mpl_toolkits import mplot3d
+from mpl_toolkits import mplot3d # This is require for matplot lib
 from cv_bridge import CvBridgeError, CvBridge
 
 import cv2
@@ -9,7 +10,7 @@ import sensor_msgs.point_cloud2 as pc2
 from sensor_msgs.msg import Image, PointCloud2
 
 
-class Perception:
+class GenericPerception:
     def __init__(self, depth, color, points, node_name='listener'):
         # In ROS, nodes are uniquely named. If two nodes with the same
         # name are launched, the previous one is kicked off. The
@@ -87,7 +88,18 @@ class Perception:
         plt.axis('equal')
         plt.show()
 
-    def run(self):
+    def run(self, run_test=False):
+        if run_test:
+            self.test()
+
+        # spin() simply keeps python from exiting until this node is stopped
+        rospy.spin()
+
+    def test(self):
+        """
+        Use this function to test your code
+        :return: None
+        """
         print "============ Show color"
         self.show_color()
 
@@ -99,10 +111,7 @@ class Perception:
         print coords[0]
 
         print "============ Plot point cloud coords"
-        Perception.plot_cube3d(coords)
-
-        # spin() simply keeps python from exiting until this node is stopped
-        rospy.spin()
+        GenericPerception.plot_cube3d(coords)
 
 
 if __name__ == '__main__':
@@ -111,5 +120,5 @@ if __name__ == '__main__':
     ColorSubscriber = '/kinect2/sd/image_color'
     PointCloudSubscriber = '/kinect2/sd/points'
 
-    perception = Perception(DepthSubscriber, ColorSubscriber, PointCloudSubscriber)
+    perception = GenericPerception(DepthSubscriber, ColorSubscriber, PointCloudSubscriber)
     perception.run()
