@@ -44,20 +44,18 @@ import chess_calculate
 
 import rospy
 import rospkg
-import numpy as np
 import time
 import sys
-import math
-from std_msgs.msg import String, Bool, Int32
+from std_msgs.msg import String, Bool
+
 rospack = rospkg.RosPack()
 PACKAGE_PATH = rospack.get_path("hiro")
 sys.path.append(PACKAGE_PATH + '/projects')
-from ur5_arm_node import Arm
 import urx
 import chess
 import chess.uci
 from robotiq_2f_gripper_control.msg import _Robotiq2FGripper_robot_output  as outputMsg
-import cv2
+
 
 # python movement.py _robot_ip:=10.42.0.54
 # pollux: 10.42.0.175, castor: 10.42.0.54
