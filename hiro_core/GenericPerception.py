@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+"""
+A generic perception class created to work with any camera.
+It provides basic functionalities to retrieve raw data from
+the camera (RGB, depth, and point cloud).
+"""
 import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d # This is require for matplot lib
 from cv_bridge import CvBridgeError, CvBridge
@@ -10,7 +15,7 @@ import sensor_msgs.point_cloud2 as pc2
 from sensor_msgs.msg import Image, PointCloud2
 
 
-class GenericPerception:
+class GenericPerception(object):
     def __init__(self, depth, color, points, node_name='listener'):
         # In ROS, nodes are uniquely named. If two nodes with the same
         # name are launched, the previous one is kicked off. The
@@ -40,6 +45,10 @@ class GenericPerception:
         self.point_cloud = data
 
     def show_color(self):
+        """
+        Show color video
+        :return: None
+        """
         while not rospy.is_shutdown():
             rospy.Rate(10).sleep()
             if self.rgb_scaled_img is None:
