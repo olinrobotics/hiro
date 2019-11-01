@@ -17,7 +17,23 @@ find_package(catkin REQUIRED COMPONENTS
 	geometry_msgs
 	sensor_msgs
 	tf
+	interactive_markers
+	moveit_core
+	moveit_visual_tools
+	moveit_ros_planning
+	moveit_ros_planning_interface
+	moveit_ros_perception
+	pluginlib
+	geometric_shapes
+	pcl_ros
+	pcl_conversions
+	rosbag
+	tf2_ros
+	tf2_eigen
+	tf2_geometry_msgs
 )
+
+find_package(Eigen3 REQUIRED)
 
 # Find OpenNI
 find_package(PkgConfig)
@@ -29,6 +45,7 @@ find_package(OpenGL REQUIRED)
 #Find GLUT
 find_package(GLUT REQUIRED)
 
+add_compile_options(-std=c++11)
 catkin_python_setup()
 
 ## Generate messages in the 'msg' folder
@@ -74,10 +91,21 @@ generate_messages(
 
 
 catkin_package(
-	CATKIN_DEPENDS message_runtime std_msgs)
+	CATKIN_DEPENDS
+		message_runtime std_msgs
+		moveit_core
+		moveit_visual_tools
+		moveit_ros_planning_interface
+		interactive_markers
+		tf2_geometry_msgs
+	DEPENDS
+		EIGEN3)
 
 
-
+include_directories(
+	# include
+	${catkin_INCLUDE_DIRS}
+)
 install(DIRECTORY include/${PROJECT_NAME}/
 	DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
 
