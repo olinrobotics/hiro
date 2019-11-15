@@ -70,7 +70,7 @@ class GenericRobot(object):
             if self.visualize_trajectory:
                 print "What do you want to do?" \
                       "\n1. Re-visualize the plan (type 1)" \
-                      "\n2. Execute the plan(type execute)" \
+                      "\n2. Execute the plan (type execute)" \
                       "\n3. Re-plan (type 3)" \
                       "\n4. Do nothing (type 4)"
                 user_input = raw_input("Input:")
