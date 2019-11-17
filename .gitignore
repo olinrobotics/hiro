@@ -9,6 +9,7 @@ tools/*
 *.zip
 *.o
 *.a
+hiro_active/cmake-build-debug/*
 
 # Created by https://www.gitignore.io/api/intellij
 
