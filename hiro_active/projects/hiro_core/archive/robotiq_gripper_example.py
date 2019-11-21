@@ -1,3 +1,8 @@
+"""
+THIS IS THE OLD METHOD TO CONTROL THE GRIPPER. THIS DOES NOT
+CONNECT WITH MOVEIT, AND SO IT IS NOT RECOMMENDED TO RUN THIS FILE.
+"""
+
 # Example code for operating the robotiq 2f-140 Gripper
 
 import rospy

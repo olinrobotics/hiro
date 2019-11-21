@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+"""
+THIS IS THE OLD METHOD TO CONTROL THE UR5 ARM. THIS DOES NOT
+CONNECT WITH MOVEIT, AND SO IT IS NOT RECOMMENDED TO RUN THIS FILE.
+"""
 import time
 import roslib; roslib.load_manifest('hiro')
 import rospy
