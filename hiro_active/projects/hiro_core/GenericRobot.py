@@ -50,7 +50,7 @@ class GenericRobot(object):
         """
         Publish trajectory so that we can visualize in Rviz
         :param plan:
-        :return:
+        :return: None
         """
         display_trajectory = moveit_msgs.msg.DisplayTrajectory()
         display_trajectory.trajectory_start = self.get_robot_state()
@@ -58,13 +58,14 @@ class GenericRobot(object):
         self.display_trajectory_publisher.publish(display_trajectory)
 
     def plan_and_execute(self, move_group, joint_goal=None):
-        # type: (moveit_commander.MoveGroupCommander, list) -> bool
+        # type: (str or moveit_commander.MoveGroupCommander, list) -> bool
         """
         Plan, display the trajectory and execute the plan
         :param move_group: MoveGroupCommander
         :param joint_goal: a list of joints
         :return: bool: is_success
         """
+        is_success = False
         plan = move_group.plan(joint_goal)
         while True:
             if self.visualize_trajectory:
@@ -83,52 +84,81 @@ class GenericRobot(object):
                     plan = move_group.plan(joint_goal)
                     continue
                 else:
-                    return False
+                    return is_success
             else:
                 break
 
         is_success = move_group.execute(plan, wait=True)
         return is_success
 
-    def set_pose_goal(self, group_name, pose_goal=None):
-        # type: (str, geometry_msgs.msg.Pose) -> bool
+    def set_pose_goal(self, move_group, pose_goal=None):
+        # type: (str or moveit_commander.MoveGroupCommander, geometry_msgs.msg.Pose) -> bool
         """
         Set pose goal for a particular move group
-        :param group_name: move group name
+        :param move_group: move group name or commander
         :param pose_goal: the pose goal
         :return: bool: is successful
         """
         is_success = False
+        if type(move_group) is str:
+            if not self.contains(move_group):
+                return is_success
+            else:
+                move_group = self.move_groups[move_group]
+
         if pose_goal:
-            if self.contains(group_name):
-                move_group = self.move_groups[group_name]
-                move_group.set_pose_target(pose_goal)
-                is_success = self.plan_and_execute(move_group)
-                move_group.stop()
-                move_group.clear_pose_targets()
+            move_group.set_pose_target(pose_goal)
+            is_success = self.plan_and_execute(move_group)
+            move_group.stop()
+            move_group.clear_pose_targets()
         else:
             print "Please provide a pose goal!"
 
         return is_success
 
-    def update_joint_values(self, group_name, joint_goal):
-        # type: (str, list) -> bool
+    def set_joint_values(self, move_group, joint_goal):
+        # type: (str or moveit_commander.MoveGroupCommander, list) -> bool
         """
         Set pose goal for a particular move group
-        :param group_name: move group name
-        :param joint_goal: the joint goal
+        :param move_group: move group name or commander
+        :param joint_goal: a list of the joint values
         :return: bool: is successful
         """
         is_success = False
-        if self.contains(group_name):
-            current_joints = robot.get_current_joint_values(move_group)
-            if len(current_joints) != len(joint_goal):
-                print "Current joints are not the same as goal joints."
+        if type(move_group) is str:
+            if not self.contains(move_group):
                 return is_success
+            else:
+                move_group = self.move_groups[move_group]
 
-            is_success = self.plan_and_execute(self.move_groups[group_name])
-            self.move_groups[group_name].stop()
+        current_joints = move_group.get_current_joint_values()
+        if len(current_joints) != len(joint_goal):
+            print "Current joints (len=%i) are not the same as goal joints (len=%i)." \
+                  % (len(current_joints), len(joint_goal))
+            return is_success
 
+        is_success = self.plan_and_execute(move_group, joint_goal)
+        move_group.stop()
+
+        return is_success
+
+    def set_default_state(self, move_group, state):
+        # type: (str or moveit_commander.MoveGroupCommander, str) -> bool
+        """
+        Set the default state of a particular move group
+        :param move_group: move group name or commander
+        :param state: the name of the default state defined in the SRDF file
+        :return: bool: is successful
+        """
+        is_success = False
+        if type(move_group) is str:
+            if not self.contains(move_group):
+                return is_success
+            else:
+                move_group = self.move_groups[move_group]
+
+        move_group.set_named_target(state)
+        is_success = self.plan_and_execute(move_group)
         return is_success
 
     def get_robot_state(self):
@@ -152,19 +182,19 @@ class GenericRobot(object):
 
 
 if __name__ == '__main__':
-    robot = GenericRobot()
-    move_group = "left_manipulator"
+    robot = GenericRobot(visualize_trajectory=False)
+    group_name = "left_manipulator"
 
     print "============ Printing robot state"
     print robot.get_robot_state
 
     print "============ Printing joint values"
-    print robot.get_current_joint_values(move_group)
+    print robot.get_current_joint_values(group_name)
 
     print "============ Moving by updating joint states"
-    joint_goal = robot.get_current_joint_values(move_group)
+    joint_goal = robot.get_current_joint_values(group_name)
     joint_goal[2] += pi / 10
-    print robot.update_joint_values(move_group, joint_goal)
+    print robot.set_joint_values(group_name, joint_goal)
 
     print "============ Moving using pose goal"
     pose_goal = geometry_msgs.msg.Pose()
@@ -172,4 +202,4 @@ if __name__ == '__main__':
     pose_goal.position.x = 0.4
     pose_goal.position.y = 0.3
     pose_goal.position.z = 0.5
-    print robot.set_pose_goal(move_group, pose_goal)
+    print robot.set_pose_goal(group_name, pose_goal)
