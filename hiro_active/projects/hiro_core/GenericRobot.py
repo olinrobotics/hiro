@@ -5,12 +5,13 @@ It has basic functions to retrieve robot information and to control all the
 move groups belonging to the robot (by setting either the pose goal or joint values).
 """
 import sys
+from math import pi
 
 import moveit_commander
 import rospy
-import geometry_msgs.msg
-import moveit_msgs.msg
-from math import pi
+from geometry_msgs.msg import Pose
+from moveit_msgs.msg import PlanningScene, DisplayTrajectory, RobotTrajectory
+from moveit_msgs.srv import GetPlanningScene
 
 
 class GenericRobot(object):
@@ -21,10 +22,11 @@ class GenericRobot(object):
         self.visualize_trajectory = visualize_trajectory
         self.robot = moveit_commander.RobotCommander()
         self.scene = moveit_commander.PlanningSceneInterface()
-        self.display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',
-                                                            moveit_msgs.msg.DisplayTrajectory,
+        self.display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path', DisplayTrajectory,
                                                             queue_size=20)
-        rospy.sleep(0.2)
+        self.planning_scene_publisher = rospy.Publisher('/planning_scene', PlanningScene, queue_size=10, latch=True)
+        self.get_planning_scene = rospy.ServiceProxy('/get_planning_scene', GetPlanningScene)
+        rospy.sleep(0.5)
 
         # Find all available group names of the robot
         self.group_names = self.robot.get_group_names()
@@ -42,17 +44,17 @@ class GenericRobot(object):
         if group_name in self.group_names:
             return True
         else:
-            print "Cannot find group:", group_name
+            rospy.loginfo("Cannot find group:", group_name)
             return False
 
     def publish_trajectory(self, plan):
-        # type: (moveit_msgs.msg.RobotTrajectory) -> None
+        # type: (RobotTrajectory) -> None
         """
         Publish trajectory so that we can visualize in Rviz
         :param plan:
         :return: None
         """
-        display_trajectory = moveit_msgs.msg.DisplayTrajectory()
+        display_trajectory = DisplayTrajectory()
         display_trajectory.trajectory_start = self.get_robot_state()
         display_trajectory.trajectory.append(plan)
         self.display_trajectory_publisher.publish(display_trajectory)
@@ -66,33 +68,53 @@ class GenericRobot(object):
         :return: bool: is_success
         """
         is_success = False
+        move_group = self.get_move_group_commander(move_group)
+        move_group.set_start_state_to_current_state()
+
+        # Planning
         plan = move_group.plan(joint_goal)
-        while True:
-            if self.visualize_trajectory:
-                print "What do you want to do?" \
-                      "\n1. Re-visualize the plan (type 1)" \
-                      "\n2. Execute the plan (type execute)" \
-                      "\n3. Re-plan (type 3)" \
-                      "\n4. Do nothing (type 4)"
-                user_input = raw_input("Input:")
-                if user_input == "1":
-                    self.publish_trajectory(plan)
-                    continue
-                elif user_input == "execute":
-                    break
-                elif user_input == "3":
-                    plan = move_group.plan(joint_goal)
-                    continue
-                else:
-                    return is_success
-            else:
+
+        # Visualizing and executing the trajectory
+        while self.visualize_trajectory:
+            rospy.loginfo("What do you want to do?"
+                          "\n1. Re-visualize the plan (type 1)"
+                          "\n2. Execute the plan (type execute)"
+                          "\n3. Re-plan (type 3)"
+                          "\n4. Do nothing (type 4)")
+            rospy.sleep(0.5)
+            user_input = raw_input("Input:").lower()
+            if user_input == "1":
+                self.publish_trajectory(plan)
+                continue
+            elif user_input == "execute":
                 break
+            elif user_input == "3":
+                plan = move_group.plan(joint_goal)
+                continue
+            else:
+                return is_success
 
         is_success = move_group.execute(plan, wait=True)
+
+        # Retrying if failed
+        while not is_success:
+            rospy.logerr("Execution failed. Do you want to try again?"
+                         "\n1. Yes"
+                         "\n2. No")
+            rospy.sleep(0.5)
+            user_input = raw_input("Input:").lower()
+            if user_input == "y" or user_input == "yes":
+                is_success = self.plan_and_execute(move_group, joint_goal)
+                break
+            elif user_input == "n" or user_input == "no":
+                break
+            else:
+                rospy.loginfo("Input invalid! Please type 'yes' or 'no'.")
+                continue
         return is_success
 
     def set_pose_goal(self, move_group, pose_goal=None):
-        # type: (str or moveit_commander.MoveGroupCommander, geometry_msgs.msg.Pose) -> bool
+        # type: (str or moveit_commander.MoveGroupCommander, Pose) -> bool
         """
         Set pose goal for a particular move group
         :param move_group: move group name or commander
@@ -100,11 +122,7 @@ class GenericRobot(object):
         :return: bool: is successful
         """
         is_success = False
-        if type(move_group) is str:
-            if not self.contains(move_group):
-                return is_success
-            else:
-                move_group = self.move_groups[move_group]
+        move_group = self.get_move_group_commander(move_group)
 
         if pose_goal:
             move_group.set_pose_target(pose_goal)
@@ -112,7 +130,7 @@ class GenericRobot(object):
             move_group.stop()
             move_group.clear_pose_targets()
         else:
-            print "Please provide a pose goal!"
+            rospy.loginfo("Please provide a pose goal!")
 
         return is_success
 
@@ -125,16 +143,12 @@ class GenericRobot(object):
         :return: bool: is successful
         """
         is_success = False
-        if type(move_group) is str:
-            if not self.contains(move_group):
-                return is_success
-            else:
-                move_group = self.move_groups[move_group]
+        move_group = self.get_move_group_commander(move_group)
 
         current_joints = move_group.get_current_joint_values()
         if len(current_joints) != len(joint_goal):
-            print "Current joints (len=%i) are not the same as goal joints (len=%i)." \
-                  % (len(current_joints), len(joint_goal))
+            rospy.loginfo("Current joints (len=%i) are not the same as goal joints (len=%i)." \
+                          % (len(current_joints), len(joint_goal)))
             return is_success
 
         is_success = self.plan_and_execute(move_group, joint_goal)
@@ -142,7 +156,7 @@ class GenericRobot(object):
 
         return is_success
 
-    def set_default_state(self, move_group, state):
+    def _set_default_state(self, move_group, state):
         # type: (str or moveit_commander.MoveGroupCommander, str) -> bool
         """
         Set the default state of a particular move group
@@ -150,16 +164,19 @@ class GenericRobot(object):
         :param state: the name of the default state defined in the SRDF file
         :return: bool: is successful
         """
-        is_success = False
+        move_group = self.get_move_group_commander(move_group)
+        move_group.set_named_target(state)
+        return self.plan_and_execute(move_group)
+
+    def get_move_group_commander(self, move_group):
+        # type: (str or moveit_commander.MoveGroupCommander) -> moveit_commander.MoveGroupCommander
         if type(move_group) is str:
             if not self.contains(move_group):
-                return is_success
+                raise Exception("Invalid group name [%s]." % move_group)
             else:
-                move_group = self.move_groups[move_group]
-
-        move_group.set_named_target(state)
-        is_success = self.plan_and_execute(move_group)
-        return is_success
+                return self.move_groups[move_group]
+        else:
+            return move_group
 
     def get_robot_state(self):
         # type: () -> str
@@ -182,24 +199,24 @@ class GenericRobot(object):
 
 
 if __name__ == '__main__':
-    robot = GenericRobot(visualize_trajectory=False)
+    robot = GenericRobot(visualize_trajectory=True)
     group_name = "left_manipulator"
 
-    print "============ Printing robot state"
-    print robot.get_robot_state
+    rospy.loginfo("============ rospy.loginfo(ing robot state")
+    rospy.loginfo(robot.get_robot_state)
 
-    print "============ Printing joint values"
-    print robot.get_current_joint_values(group_name)
+    rospy.loginfo("============ rospy.loginfo(ing joint values")
+    rospy.loginfo(robot.get_current_joint_values(group_name))
 
-    print "============ Moving by updating joint states"
+    rospy.loginfo("============ Moving by updating joint states")
     joint_goal = robot.get_current_joint_values(group_name)
     joint_goal[2] += pi / 10
-    print robot.set_joint_values(group_name, joint_goal)
+    rospy.loginfo(robot.set_joint_values(group_name, joint_goal))
 
-    print "============ Moving using pose goal"
-    pose_goal = geometry_msgs.msg.Pose()
+    rospy.loginfo("============ Moving using pose goal")
+    pose_goal = Pose()
     pose_goal.orientation.w = 1.0
     pose_goal.position.x = 0.4
     pose_goal.position.y = 0.3
     pose_goal.position.z = 0.5
-    print robot.set_pose_goal(group_name, pose_goal)
+    rospy.loginfo(robot.set_pose_goal(group_name, pose_goal))
