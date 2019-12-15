@@ -91,8 +91,11 @@ class GenericRobot(object):
             elif user_input == "3":
                 plan = move_group.plan(joint_goal)
                 continue
-            else:
+            elif user_input == "4":
                 return is_success
+            else:
+                rospy.logwarn("INVALID INPUT!")
+                continue
 
         is_success = move_group.execute(plan, wait=True)
 
