@@ -19,9 +19,9 @@ class StackingCubes:
         self.cube_size = 0.092
         self.default_gripper_quaternion = Quaternion(*quaternion_from_euler(pi, 0, pi / 2))
         self.default_pos = Pose(position=Point(*[0.6256, -0.50, 0.2]), orientation=self.default_gripper_quaternion)
-        self.goal_positions = [Pose(position=Point(*[0.6256 + self.cube_size - 0.02, self.cube_size, 0.995]),
+        self.goal_positions = [Pose(position=Point(*[0.6256 + self.cube_size - 0.02, self.cube_size, 0.10]),
                                     orientation=self.default_gripper_quaternion),
-                               Pose(position=Point(*[0.6256 - self.cube_size + 0.02, self.cube_size, 0.995]),
+                               Pose(position=Point(*[0.6256 - self.cube_size + 0.02, self.cube_size, 0.10]),
                                     orientation=self.default_gripper_quaternion),
                                Pose(position=Point(
                                    *[0.6256 + self.cube_size - 0.02, self.cube_size, 0.125 + self.cube_size]),
@@ -212,5 +212,4 @@ if __name__ == '__main__':
     # april_4 = Pose(position=Point(*[0.6256, 0, 0.3]), orientation=project.default_gripper_quaternion)
     # project.robot.right_manipulator.set_pose_goal(april_4)
     # project.reset()
-    # project.run()
-    project.robot.right_gripper.set_value(100)
+    project.run()
