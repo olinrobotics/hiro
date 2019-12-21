@@ -38,6 +38,9 @@
 #include "tag36h11.h"
 #include "tag25h9.h"
 #include "tag16h5.h"
+#include "tagCustom48h12.h"
+#include "tagCircle21h7.h"
+#include "tagCircle49h12.h"
 
 namespace apriltag_ros
 {
@@ -123,6 +126,18 @@ TagDetector::TagDetector(ros::NodeHandle pnh) :
   {
     tf_ = tag16h5_create();
   }
+  else if (family_ == "tagCustom48h12")
+  {
+    tf_ = tagCustom48h12_create();
+  }
+  else if (family_ == "tagCircle21h7")
+  {
+    tf_ = tagCircle21h7_create();
+  }
+  else if (family_ == "tagCircle49h12")
+  {
+    tf_ = tagCircle49h12_create();
+  }
   else
   {
     ROS_WARN("Invalid tag family specified! Aborting");
@@ -176,6 +191,18 @@ TagDetector::~TagDetector() {
   else if (family_ == "tag16h5")
   {
     tag16h5_destroy(tf_);
+  }
+  else if (family_ == "tagCustom48h12")
+  {
+    tagCustom48h12_destroy(tf_);
+  }
+  else if (family_ == "tagCircle21h7")
+  {
+    tagCircle21h7_destroy(tf_);
+  }
+  else if (family_ == "tagCircle49h12")
+  {
+    tagCircle49h12_destroy(tf_);
   }
 }
 

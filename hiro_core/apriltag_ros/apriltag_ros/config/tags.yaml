@@ -19,17 +19,6 @@
 #   ]
 standalone_tags:
   [
-    {id: 0, size: 5.6},
-    {id: 1, size: 5.6},
-    {id: 2, size: 5.6},
-    {id: 3, size: 5.6},
-    {id: 4, size: 5.6},
-{id: 5, size: 5.6},
-{id: 6, size: 5.6},
-{id: 7, size: 5.6},
-{id: 8, size: 5.6},
-{id: 9, size: 5.6},
-{id: 10, size: 5.6}
   ]
 # ## Tag bundle definitions
 # ### Remarks
@@ -54,5 +43,4 @@ standalone_tags:
 #   ]
 tag_bundles:
   [
-
-]
+  ]
