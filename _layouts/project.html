@@ -1,0 +1,50 @@
+---
+layout: default
+---
+{% comment %}
+This layout is used by the documents in the _projects/ collection
+{% endcomment %}
+
+{% include breadcrumbs.html class="content-narrow" %}
+
+<div class="container pure-g">
+    <div class="pure-u-1">
+        <div class="content content-narrow">
+            <div class="meta">
+                {% if page.date %}
+                <div class="post-date">{{ page.date | date_to_string }}</div>
+                {% endif %}
+                {% if page.tags.size > 0 %}
+                <span class="meta-separator">&bull;</span>
+                <ul class="tags-list">
+                    <li class="inline tag_list_item">
+                        Tags:
+                    </li>
+                    {% for tag in page.tags %}
+                    <li class="inline tag_list_item">
+                        {{ tag }}
+                        {% if forloop.last == true %}{% else %}
+                        <span>,</span>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+
+            {{ content }}
+
+            {% if page.members.size > 0 %}
+            <hr>
+            <h2> Team Members </h2>
+            <ul>
+                {% for member in page.members %}
+                <li>
+                    {{member}}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
