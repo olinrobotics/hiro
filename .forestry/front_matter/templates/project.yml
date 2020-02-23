@@ -1,0 +1,49 @@
+---
+label: Project
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: Title
+- type: datetime
+  name: date
+  label: Date
+  hidden: false
+  config:
+    required: true
+  default: '2019-03-19T04:00:00.000+00:00'
+- type: text
+  name: sub_heading
+  label: Sub Heading
+- type: tag_list
+  name: tags
+  label: Tags
+- type: file
+  name: banner_image
+  label: Banner Image
+- type: textarea
+  name: description
+  label: Description
+- type: text
+  name: slug
+  label: Slug
+- type: text
+  name: layout
+  label: Layout
+  config:
+    required: true
+  default: project
+- type: image_gallery
+  name: image_slider
+  label: Image Slider
+- type: tag_list
+  name: members
+  label: members
+  description: Team members
+pages:
+- _projects/gesture-characterization.md
+- _projects/math-problem-solving.md
+- _projects/push-cup-game.md
+- _projects/stereoscopic-vision.md
+- _projects/text-to-portrait.md
+- _projects/tictactoe.md

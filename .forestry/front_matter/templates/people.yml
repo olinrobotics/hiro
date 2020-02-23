@@ -1,0 +1,47 @@
+---
+label: People
+hide_body: false
+fields:
+- type: text
+  label: Title
+  name: title
+  config:
+    required: true
+- type: datetime
+  label: Date
+  name: date
+  default: '2019-03-19T04:00:00.000+00:00'
+- type: text
+  name: sub_heading
+  label: Sub Heading
+  description: Sub heading goes here
+- type: text
+  name: layout
+  config:
+    required: false
+  label: Layout
+  hidden: true
+  default: person
+- type: file
+  label: THUMBNAIL
+  name: thumbnail
+- type: list
+  name: role
+  label: Role
+- type: text
+  name: email
+  label: Email
+- type: text
+  name: linkedin
+  label: LinkedIn
+- type: tag_list
+  name: ''
+  label: ''
+pages:
+- _people/dave-barrett-ph-d.md
+- _people/electrical-and-computer-engineering.md
+- _people/jack-mao.md
+- _people/mahima-beltur.md
+- _people/minh-khang-vu.md
+- _people/richard-gao.md
+- _people/seung-u-lyu.md

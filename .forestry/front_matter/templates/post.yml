@@ -1,0 +1,33 @@
+---
+label: Post
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: Title
+- type: datetime
+  name: date
+  label: Date
+  default: '2019-03-19T04:00:00.000+00:00'
+- type: list
+  label: Related posts
+  name: related_post
+  description: _posts/POST_NAME.md
+- type: text
+  label: Sub Heading
+  name: sub_heading
+- type: file
+  name: banner_image
+  label: Banner Image
+- type: text
+  name: layout
+  label: Layout
+  description: post
+  hidden: true
+  default: post
+- type: tag_list
+  name: tags
+  label: Tags
+- type: image_gallery
+  name: image_slider
+  label: Image Slider
