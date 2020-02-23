@@ -67,3 +67,6 @@ fabric.properties
 # modules.xml
 venv/*
 _site/*
+
+.bundle/*
+vendor/*
