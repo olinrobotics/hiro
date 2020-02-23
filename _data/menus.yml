@@ -1,0 +1,19 @@
+navigation:
+  - url: /
+    title: Home
+  - url: /about/
+    title: About
+  - url: /projects/
+    title: Projects
+  - url: /posts/
+    title: Posts
+  - url: /contact/
+    title: Contact
+
+footer:
+  - url: /about/
+    title: About
+  - url: /projects/
+    title: Projects
+  - url: /posts/
+    title: Posts

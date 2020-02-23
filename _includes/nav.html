@@ -11,7 +11,7 @@
       </h1>
       <nav class="main-nav">
         <ul class="navigation">
-          {% for link in site.menus.navigation %}
+          {% for link in site.data.menus.navigation %}
           <li class="{% if link.children %}nested {% endif %}{% if url == link.url %}current{% endif %}">
             {% if link.children %}
             <ul class="first-level">
