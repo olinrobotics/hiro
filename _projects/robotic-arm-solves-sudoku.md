@@ -1,5 +1,5 @@
 ---
-date: 2017-12-19 05:00:00 +0000
+date: 2017-12-19T05:00:00.000+00:00
 layout: project
 title: Robotic Arm Solves Sudoku
 sub_heading: We programmed a robotic arm to solve a 4x4 Sudoku puzzle by itself (ROS
@@ -32,23 +32,33 @@ You can find the algorithm written in Python here: [Sudoku algorithm](https://gi
 
 ![Printing sudoku board](https://minhkhang1795.github.io/img/post_sudoku_6.jpg "Printing sudoku board")
 
+_A 4x4 sudoku board used in this project (24" x 24")_
+
 ## Capturing the board and processing the digits
 
 The picture taken by the robotic arm would be processed using [adaptive thresholding techniques](https://docs.opencv.org/3.3.1/d7/d4d/tutorial_py_thresholding.html) in OpenCV.
 
 ![Sudoku board taken from the robotic arm](https://minhkhang1795.github.io/img/post_sudoku_7.jpg "Sudoku board taken from the robotic arm")
 
+_Sudoku board taken from the robotic arm_
+
 We then find the contour of the Sudoku board from the processed image and apply [perspective transformation](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_geometric_transformations/py_geometric_transformations.html#perspective-transformation) on the contour to get a perfect-square image of the Sudoku grid.
 
 ![Processed image after adaptive thresholding and perspective transformation](https://minhkhang1795.github.io/img/post_sudoku_9.jpg "Processed image after adaptive thresholding and perspective transformation")
+
+_Processed image after adaptive thresholding and perspective transformation_
 
 Finally, we crop out each digit and apply [k-NN algorithm in OpenCV](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_ml/py_knn/py_knn_understanding/py_knn_understanding.html#knn-in-opencv) to predict the digits.
 
 ![Final image processing result](https://minhkhang1795.github.io/img/post_sudoku_8.jpg "Final image processing result")
 
+_Final image processing result_
+
 Using the Sudoku algorithm above, we'll find a solution for this puzzle.
 
 ![A solved Sudoku puzzle](https://minhkhang1795.github.io/img/post_sudoku_10.jpg "A solved Sudoku puzzle")
+
+_A solved Sudoku puzzle_
 
 ## Actuation of the Robotic Arm
 
@@ -56,8 +66,10 @@ In this project, the arm will move to the center position above the Sudoku board
 
 ![The arm is writing digits on the board](https://minhkhang1795.github.io/img/post_sudoku_5.jpg "The arm is writing digits on the board")
 
-The arm is writing digits on the board
+_The arm is writing digits on the board_
 
 ![The arm has solved the puzzle](https://minhkhang1795.github.io/img/post_sudoku_11.jpg "The arm has solved the puzzle")
+
+_The arm has solved the puzzle_
 
 Check out the [main function](https://github.com/olinrobotics/irl/blob/master/irl_archive/Fall_2017/sudoku_solver/scripts/sudoku_main.py#L358) to see how the arm moves.
