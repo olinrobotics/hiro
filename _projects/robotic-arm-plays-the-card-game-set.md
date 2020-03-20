@@ -21,7 +21,7 @@ members:
 
 In this project, we programmed a robotic arm to identify and pick up 3 cards that make a set. Our work involved image processing, image analysis, and robotics programming in ROS.
 
-<iframe width="100%" height="415" src="https://www.youtube.com/embed/idnPBx4LdmI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="415" src="https://www.youtube.com/embed/Iv6N6i-sDTU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # How it works
 
