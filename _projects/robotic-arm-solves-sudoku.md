@@ -14,7 +14,6 @@ members:
 - Khang Vu
 - Nick Steelman
 - Sherrie Shen
-published: false
 
 ---
 # Description
