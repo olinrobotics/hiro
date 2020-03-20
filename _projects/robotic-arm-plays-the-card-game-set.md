@@ -19,6 +19,8 @@ members:
 ---
 # Description
 
+In this project, we programmed a robotic arm to identify and pick up 3 cards that make a set. Our work involved image processing, image analysis, and robotics programming in ROS.
+
 # How it works
 
 ## Algorithm to find a set
