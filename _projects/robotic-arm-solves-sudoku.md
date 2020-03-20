@@ -6,7 +6,7 @@ sub_heading: We programmed a robotic arm to solve a 4x4 Sudoku puzzle by itself 
   in Python).
 tags:
 - Fall 2017
-banner_image: "/uploads/post_sudoku_1.jpg"
+banner_image: "/hiro/uploads/post_sudoku_1.jpg"
 description: ''
 slug: ''
 image_slider: []
