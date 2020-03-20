@@ -5,7 +5,7 @@ title: Stereoscopic Vision
 sub_heading: Teach Edwin to recognize and remember objects.
 tags:
 - Fall 2016
-banner_image: "/hiro/uploads/Stereoscopic Vision banner"
+banner_image: "/hiro/uploads/Stereoscopic Vision banner.png"
 description: ''
 slug: ''
 image_slider: []
