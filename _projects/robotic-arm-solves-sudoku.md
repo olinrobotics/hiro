@@ -22,6 +22,8 @@ We programmed a robotic arm to solve a 4x4 Sudoku puzzle by itself (ROS in Pytho
 
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/idnPBx4LdmI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<iframe width="100%" height="415" src="https://www.youtube.com/embed/8wan8w3xcxE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 # How it works
 
 ## Algorithm to solve a Sudoku puzzle
