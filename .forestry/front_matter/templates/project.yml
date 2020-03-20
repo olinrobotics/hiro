@@ -41,6 +41,7 @@ fields:
   label: members
   description: Team members
 pages:
+- _projects/chess-competition.md
 - _projects/gesture-characterization.md
 - _projects/math-problem-solving.md
 - _projects/push-cup-game.md
