@@ -2,12 +2,12 @@
 date: 2017-01-09T05:00:00.000+00:00
 layout: project
 title: Push Cup Game
-sub_heading: Edwin and the player take turns pushing the cup, the player pushing the
+description: Edwin and the player take turns pushing the cup, the player pushing the
   cup off of the goal and Edwin returning the cup to a position covering the goal.
 tags:
 - Fall 2016
 banner_image: "/hiro/uploads/Push Cup Game Banner.png"
-description: ''
+sub_heading: ''
 slug: ''
 image_slider: []
 members:

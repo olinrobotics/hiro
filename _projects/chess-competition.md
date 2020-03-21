@@ -2,12 +2,12 @@
 date: 2018-12-18 05:00:00 +0000
 layout: project
 title: Chess Competition
-sub_heading: Chess-Competition uses a simplified method to create a chess game experience
+description: Chess-Competition uses a simplified method to create a chess game experience
   between a UR5 robot arm and a human player.
 tags:
 - Fall 2018
 banner_image: "/hiro/uploads/chess_competition.JPG"
-description: ''
+sub_heading: ''
 slug: ''
 image_slider: []
 members:

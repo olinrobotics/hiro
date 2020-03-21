@@ -2,12 +2,12 @@
 date: 2017-12-19T05:00:00.000+00:00
 layout: project
 title: Robotic Arm Solves Sudoku
-sub_heading: We programmed a robotic arm to solve a 4x4 Sudoku puzzle by itself (ROS
+description: We programmed a robotic arm to solve a 4x4 Sudoku puzzle by itself (ROS
   in Python).
 tags:
 - Fall 2017
 banner_image: "/hiro/uploads/post_sudoku_1.jpg"
-description: ''
+sub_heading: ''
 slug: ''
 image_slider: []
 members:

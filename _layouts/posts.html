@@ -14,7 +14,7 @@ layout: default
       <div class="content content-narrow">
         <div class="list-layout">
           <h2><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
-          <div>{{ post.content | truncatewords: 30 }}</div>
+          <div>{{ post.description | truncatewords: 30 }}</div>
           <date>{{ post.date | date_to_string }}</date>
         </div>
       </div>

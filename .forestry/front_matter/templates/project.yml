@@ -15,15 +15,15 @@ fields:
 - type: text
   name: sub_heading
   label: Sub Heading
+- type: textarea
+  name: description
+  label: Description
 - type: tag_list
   name: tags
   label: Tags
 - type: file
   name: banner_image
   label: Banner Image
-- type: textarea
-  name: description
-  label: Description
 - type: text
   name: slug
   label: Slug

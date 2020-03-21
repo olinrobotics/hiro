@@ -2,11 +2,11 @@
 date: 2016-04-29 04:00:00 +0000
 layout: project
 title: Math Problem Solving
-sub_heading: Edwin's Math Problem Solving code gives Edwin the capability to read
+description: Edwin's Math Problem Solving code gives Edwin the capability to read
   a math problem, solve it, and write the answer in the proper position.
 tags: []
 banner_image: "/hiro/uploads/Math Solving Banner.png"
-description: Edwin's Math Problem Solving code gives Edwin the capability to read
+sub_heading: Edwin's Math Problem Solving code gives Edwin the capability to read
   a math problem, solve it, and write the answer in the proper position. This project
   aims to make Edwin more organic by slowing down his problem solving and showing
   more of the steps, so to speak. Additionally, the angle of "Edwin does your homework"

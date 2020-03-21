@@ -24,7 +24,7 @@ the _projects/ collection
                     </div>
                     <div class="card-body">
                         <h3><a href="{{ project.url | absolute_url }}">{{ project.title }}</a></h3>
-                        <p>{{ project.sub_heading | truncatewords: 15 }}</p>
+                        <p>{{ project.description | truncatewords: 15 }}</p>
                     </div>
                 </div>
             </div>

@@ -2,12 +2,12 @@
 date: 2017-01-12T05:00:00.000+00:00
 layout: project
 title: Gesture Characterization
-sub_heading: Enable Edwin to interact with a user by identifying the user's movement
+description: Enable Edwin to interact with a user by identifying the user's movement
   and classifying it.
 tags:
 - Fall 2016
 banner_image: "/hiro/uploads/Follow Me Banner.png"
-description: ''
+sub_heading: ''
 slug: ''
 image_slider: []
 members:
