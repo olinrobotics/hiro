@@ -32,17 +32,14 @@ Read [Install ROS Wrapper 2.0 for Intel RealSense Devices](https://github.com/ol
 
 # Run Program
 
+Connect with the gripper and the UR5 arm
 ```bash
 roslaunch ur_modern_driver ur5_bringup.launch robot_ip:=10.42.0.175
 rosrun hiro ur5_arm_node.py _robot_ip:=10.42.0.175
 rosrun robotiq_2f_gripper_control Robotiq2FGripperRtuNode.py /dev/ttyUSB0
+(optional) rosrun robotiq_2f_gripper_control Robotiq2FGripperSimpleController.py
 ```
-
-optional
-```bash
-rosrun robotiq_2f_gripper_control Robotiq2FGripperSimpleController.py
-```
-
+Run Chess Competition python script
 ```bash
 python movement.py
 ```
