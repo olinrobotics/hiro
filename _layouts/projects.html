@@ -19,7 +19,7 @@ the _projects/ collection
                         {% if project.banner_image and project.banner_image != "" %}
                         <img src="{{ project.banner_image }}" alt="{{ project.title }}">
                         {% else %}
-                        <img src="{{ "/img/placeholder.jpg" | absolute_url }}" alt="{{ project.title }}">
+                        <img src="{{ "/uploads/placeholder.jpg" | absolute_url }}" alt="{{ project.title }}">
                         {% endif %}
                     </div>
                     <div class="card-body">
