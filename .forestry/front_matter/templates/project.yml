@@ -38,8 +38,8 @@ fields:
   label: Image Slider
 - type: tag_list
   name: members
-  label: members
-  description: Team members
+  label: Members
+  description: Team Members
 pages:
 - _projects/chess-competition.md
 - _projects/gesture-characterization.md
