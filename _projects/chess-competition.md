@@ -122,18 +122,6 @@ This script will:
 * Use the calculated next move and physically move the chess pieces by the robot arm.
 * End the program when the chess game is over.
 
-## Snapshot of Chess Board
-
-![Board](https://github.com/olinrobotics/hiro/blob/seungu/chess/hiro_active/projects/chess/opencv_frame_0.jpeg)
-
-## Mask for Blue Chess Pieces
-
-![Blue Pieces](https://github.com/olinrobotics/hiro/blob/seungu/chess/hiro_active/projects/chess/Blue_Color.jpeg)
-
-## Mask for Red Chess Pieces
-
-![Red Pieces](https://github.com/olinrobotics/hiro/blob/seungu/chess/hiro_active/projects/chess/Red_Color.jpeg)
-
 # Tools Used
 
 * Ubuntu 16.04
