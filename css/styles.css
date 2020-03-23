@@ -1,0 +1,56 @@
+.main-nav {
+    display: block;
+}
+
+.main-nav ul {
+    margin-top: 20px;
+}
+
+.main-nav div.icon {
+    display: none;
+    position: absolute;
+    right: 1em;
+    top: 2em;
+}
+
+.navigation {
+    -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    transition: background .5s ease-in-out, padding .5s ease-in-out;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 736px) {
+    .main-nav div.icon {
+        display: block;
+    }
+
+    .main-nav li {
+        margin-left: 0;
+        display: none;
+    }
+
+    .navigation.responsive {
+        position: absolute;
+        background-color: #fff;
+        z-index: 10;
+        top: 4em;
+        width: 100%;
+        margin-left: -2rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .navigation.responsive li {
+        margin: 8px 16px 8px 16px;
+    }
+
+    .navigation.responsive li {
+        display: block;
+        text-align: left;
+    }
+}

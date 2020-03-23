@@ -33,5 +33,21 @@
   <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
   <!--<![endif]-->
   <link rel="stylesheet" href="{{ "/css/main.min.css" | absolute_url }}">
+  <link rel="stylesheet" href="{{ "/css/styles.css" | absolute_url }}">
 </head>
+
+<script>
+  /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+  function onBurgerMenuClick() {
+    let nav = document.getElementById("navigation");
+    let burgerMenu = document.getElementById("burgerMenu");
+    if (nav.className === "navigation") {
+      nav.className += " responsive";
+      burgerMenu.className = "fa fa-times fa-2x";
+    } else {
+      nav.className = "navigation";
+      burgerMenu.className = "fa fa-bars fa-2x"
+    }
+  }
+</script>
 <body>

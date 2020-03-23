@@ -1,50 +1,55 @@
 {% comment %}
-	Displays the site's navigation using the jekyll-menus plugin
+Displays the site's navigation using the jekyll-menus plugin
 {% endcomment %}
 
 {% assign url = page.url | remove:'index.html' %}
 
-<header class="site-header">
-  <div class="container">
-      <h1 class="logo">
-        <a href="{{ "/" | absolute_url }}">{{ site.name }}</a>
-      </h1>
-      <nav class="main-nav">
-        <ul class="navigation">
-          {% for link in site.data.menus.navigation %}
-          <li class="{% if link.children %}nested {% endif %}{% if url == link.url %}current{% endif %}">
-            {% if link.children %}
-            <ul class="first-level">
-              {% for child in link.children %}
-              <li>
-                {% if child.children %}
-                <ul class="second-level">
-                  {% for child in child.children %}
-                  <li>
-                    <a href="{{ child.url | absolute_url }}">{{ child.title }}</a>
-                  </li>
-                  {% endfor %}
-                </ul>
-                {% endif %}
-                <a href="{{ child.url | absolute_url }}"{% if child.target %} target="_blank" {% endif %}>
-                  {{ child.title }}
-                  {% if child.childen %}
-                    <i class='icon-right-dir-2'></i>
-                  {% endif %}
-                </a>
-              </li>
-              {% endfor %}
+<header class="site-header"
+        style="position: -webkit-sticky; position: sticky;
+        top:0; z-index: 10; box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12)">
+    <div class="container">
+        <h1 class="logo">
+            <a href="{{ "/" | absolute_url }}">{{ site.name }}</a>
+        </h1>
+        <nav class="main-nav">
+            <ul id="navigation" class="navigation">
+                {% for link in site.data.menus.navigation %}
+                <li class="{% if link.children %}nested {% endif %}{% if url == link.url %}current{% endif %}">
+                    {% if link.children %}
+                    <ul class="first-level">
+                        {% for child in link.children %}
+                        <li>
+                            {% if child.children %}
+                            <ul class="second-level">
+                                {% for child in child.children %}
+                                <li>
+                                    <a href="{{ child.url | absolute_url }}">{{ child.title }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            <a href="{{ child.url | absolute_url }}" {% if child.target %} target="_blank" {% endif %}>
+                                {{ child.title }}
+                                {% if child.childen %}
+                                <i class='icon-right-dir-2'></i>
+                                {% endif %}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    <a href="{{ link.url | absolute_url }}" {% if link.target %} target="_blank" {% endif %}>
+                        {{ link.title }}
+                        {% if link.childen %}
+                        <i class='icon-chevron-down'></i>
+                        {% endif %}
+                    </a>
+                </li>
+                {% endfor %}
             </ul>
-            {% endif %}
-            <a href="{{ link.url | absolute_url }}"{% if link.target %} target="_blank" {% endif %}>
-                  {{ link.title }}
-                  {% if link.childen %}
-                    <i class='icon-chevron-down'></i>
-                  {% endif %}
-                </a>
-          </li>
-          {% endfor %}
-        </ul>
-    </nav>
-  </div>
+            <div href="javascript:void(0);" class="icon" onclick="onBurgerMenuClick()">
+                <i id="burgerMenu" class="fa fa-bars fa-2x"></i>
+            </div>
+        </nav>
+    </div>
 </header>
