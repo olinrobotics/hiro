@@ -33,27 +33,30 @@ Chess Competition is a program that enables robotic arms to play chess against a
 Using an RGB picture of the current board layout, it masks all colors except the specific blue and red of the chess pieces to locate the positions of those chess pieces. It then determines its moves based on the chess pieces' positions on the board. The program stops when either the player or the robot wins.
 
 ### Between Turns
-![Between Turns](https://github.com/olinrobotics/hiro/hiro_archive/Fall_2018/chess/BetweenTurns.png)
+![Between Turns](https://github.com/olinrobotics/hiro/tree/master/hiro_archive/Fall_2018/chess/BetweenTurns.png)
 
 In Chess-Competition, there are three different forms of information about the chessboard used. The first form is in the form of a virtual chessboard inside the program, written with FEN (Forsyth–Edwards Notation), so that the chess engine can recognize the position of each chess piece later on. The second form is the actual chessboard, in which the program stores information about the real game situation. The last form is a simplified chessboard which is stored as 8*8 matrix. This form stores color information of each position. 
 
 ### Human Turn
-![Human Turn Step 1](https://github.com/olinrobotics/hiro/hiro_archive/Fall_2018/chess/HumanTurn.png)
+![Human Turn Step 1](https://github.com/olinrobotics/hiro/tree/master/hiro_archive/Fall_2018/chess/HumanTurn.png)
 
 When human player moves a piece, the information on the actual chessboard is converted into a new simplified chessboard by using OpenCV. OpenCV recognizes different colors on each position of the actual chessboard, and saves them into a single 8*8 matrix. 
 
-![Human Turn Step 2](https://github.com/olinrobotics/hiro/hiro_archive/Fall_2018/chess/HumanTurn2.png)
+![Human Turn Step 2](https://github.com/olinrobotics/hiro/tree/master/hiro_archive/Fall_2018/chess/HumanTurn2.png)
 
 By comparing the new simplified chessboard with the one from the previous turn, the program figures out which movement is made by the human player. From the example above, the human player moves “f7f5”, meaning a piece from the cell f7 is moved to the cell f5.
 
-![Human Turn Step 3](https://github.com/olinrobotics/hiro/hiro_archive/Fall_2018/chess/HumanTurn3.png)
+![Human Turn Step 3](https://github.com/olinrobotics/hiro/tree/master/hiro_archive/Fall_2018/chess/HumanTurn3.png)
+
 The movement is then saved to the virtual chessboard (written with FEN), by the program running the command “execute movement f7f5” to the virtual chessboard. 
 
 ### Robot Turn
-![Robot Turn Step 1](https://github.com/olinrobotics/hiro/hiro_archive/Fall_2018/chess/RobotTurn.png)
+![Robot Turn Step 1](https://github.com/olinrobotics/hiro/tree/master/hiro_archive/Fall_2018/chess/RobotTurn.png)
+
 The program uses an open source chess engine called “Stockfish 10” to calculate the next best movement from the current chessboard information. By entering the virtual chessboard information retrieved at the end of the human turn to the engine, it calculates the best movement that can be made by the robot. From the above chessboard, Stockfish calculated that “g1f3” would be the best movement, and is then executed.
 
-![Robot Turn Step 2](https://github.com/olinrobotics/hiro/hiro_archive/Fall_2018/chess/RobotTurn2.png)
+![Robot Turn Step 2](https://github.com/olinrobotics/hiro/tree/master/hiro_archive/Fall_2018/chess/RobotTurn2.png)
+
 The UR5 robot arm then updates the actual chess board to match the virtual chess board.
 
 ## Documentation
@@ -91,13 +94,13 @@ This script will:
 * End the program when the chess game is over.
 
 ### Snapshot of Chess Board
-![Board](https://github.com/olinrobotics/hiro/hiro_archive/Fall_2018/chess/opencv_frame_0.jpeg)
+![Board](https://github.com/olinrobotics/hiro/tree/master/hiro_archive/Fall_2018/chess/opencv_frame_0.jpeg)
 
 ### Mask for Blue Chess Pieces
-![Blue Pieces](https://github.com/olinrobotics/hiro/hiro_archive/Fall_2018/chess/Blue_Color.jpeg)
+![Blue Pieces](https://github.com/olinrobotics/hiro/tree/master/hiro_archive/Fall_2018/chess/Blue_Color.jpeg)
 
 ### Mask for Red Chess Pieces
-![Red Pieces](https://github.com/olinrobotics/hiro/hiro_archive/Fall_2018/chess/Red_Color.jpeg)
+![Red Pieces](https://github.com/olinrobotics/hiro/tree/master/hiro_archive/Fall_2018/chess/Red_Color.jpeg)
 
 ## Demo
 ![]()
