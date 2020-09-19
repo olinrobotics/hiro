@@ -15,6 +15,7 @@ fields:
 - type: text
   name: sub_heading
   label: Sub Heading
+  description: We're currently not using this field
 - type: textarea
   name: description
   label: Description
@@ -27,6 +28,7 @@ fields:
 - type: text
   name: slug
   label: Slug
+  description: We're currently not using this field
 - type: text
   name: layout
   label: Layout
@@ -36,6 +38,7 @@ fields:
 - type: image_gallery
   name: image_slider
   label: Image Slider
+  description: We're currently not using this field
 - type: tag_list
   name: members
   label: Members
