@@ -5,7 +5,7 @@ title: Project Gemini - Collaborative Building
 sub_heading: ''
 description: Twin arms, Pollux and Castor, collaborate to build cube structures.
 tags:
-- Spring 2020
+- Spring 2018
 banner_image: "/hiro/uploads/gemini.jpg"
 slug: ''
 image_slider: []
