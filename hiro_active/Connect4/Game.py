@@ -63,7 +63,7 @@ class Game:
                small non-zero value for draw.
 
         """
-        b = self._base_board.with_np_pieces(np_pieces=board)
+        b = self._base_board.clone(np_pieces=board)
         win_state = b.win_state
         if win_state.terminated:
             if win_state.winner is None:
@@ -108,15 +108,14 @@ class Game:
     def stringRepresentation(self, board):
         """
         Input:
-            board: current boaee
+            board: current board
         Returns:
             boardString: a quick conversion of board to a string format.
                          Required by MCTS for hashing.
         """
-        return board.toString()
+        return str(board)
 
-    @staticmethod
-    def display(board):
+    def display(self, board):
         print(" -----------------------")
         print(' '.join(map(str, range(len(board[0])))))
         print(board)
@@ -125,12 +124,14 @@ class Game:
 
 if __name__ == '__main__':
     game = Game()
+    board = game._base_board.np_pieces
     print(game.getInitBoard())
     print(game.getBoardSize())
     print(game.getActionSize())
-    print(game.getNextState(None, 1, 1))
-    print(game.getValidMoves())
-    print(game.getGameEnded(None, 1))
-    print(game.getCanonicalForm())
-    print(game.getSymmetries())
-    print(game.stringRepresentation())
+    print(game.getNextState(board, 1, 1))
+    print(game.getValidMoves(board, 1))
+    print(game.getGameEnded(board, 1))
+    print(game.getCanonicalForm(board, 1))
+    print(game.getSymmetries(board, board))
+    print(game.stringRepresentation(board))
+    print(game.display(board))

@@ -1,12 +1,14 @@
 import numpy as np
 from scipy.signal import convolve2d
 
-class WinState():
+
+class WinState:
     def __init__(self, terminated=False, winner=0):
         self.terminated = terminated
         self.winner = winner
 
-class Connect4Board():
+
+class Connect4Board:
     def __init__(self, rows=6, columns=7, np_pieces=None):
         self.rows = rows
         self.columns = columns
@@ -19,7 +21,7 @@ class Connect4Board():
         diag1 = np.eye(4, dtype=np.uint8)
         diag2 = np.fliplr(diag1)
         self.detection = [hor, ver, diag1, diag2]
-        self.current_player = 1 # player 1 or -1
+        self.current_player = 1  # player 1 or -1
         self.win_state = WinState()
 
     def check_winning(self):
@@ -67,9 +69,9 @@ class Connect4Board():
 
     def clone(self, np_pieces=None):
         if np_pieces is None:
-            return Connect4Board(self.rows, self.columns, np_pieces=np.copy(self.np_pieces))
-        else:
-            return Connect4Board(self.rows, self.columns, np_pieces=np.copy(board))
+            np_pieces = self.np_pieces
+
+        return Connect4Board(self.rows, self.columns, np_pieces=np.copy(np_pieces))
 
     def game(self):
         while True:
@@ -80,7 +82,10 @@ class Connect4Board():
 
             print(self.np_pieces)
             if self.win_state.terminated:
-                print(f'Player {self.current_player} won!')
+                if self.win_state.winner is None:
+                    print('Draw!')
+                else:
+                    print(f'Player {self.win_state.winner} won!')
                 break
 
 
