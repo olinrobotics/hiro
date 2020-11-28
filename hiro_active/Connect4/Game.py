@@ -66,7 +66,7 @@ class Game:
         b = self._base_board.clone(np_pieces=board)
         win_state = b.win_state
         if win_state.terminated:
-            if win_state.winner is None:
+            if win_state.winner is 0:
                 return 1e-4
             elif win_state.winner == player:
                 return 1

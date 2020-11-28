@@ -26,31 +26,23 @@ class Connect4Board:
 
     def check_winning(self):
         # Boolean mask current player with 1
-        copy = np.zeros((6, 7))
-        for i in range(self.rows):
-            for j in range(self.columns):
-                if self.np_pieces[i][j] == self.current_player:
-                    copy[i][j] = 1
+        copy = self.np_pieces == self.current_player
 
         # Check if current player is winning
         for i in self.detection:
             if (convolve2d(copy == 1, i, mode="valid") == 4).any():
-                self.win_state = WinState(True, self.current_player)
-                return
+                self.win_state = WinState(terminated=True, winner=self.current_player)
+                return self.win_state
 
         # Check draw
-        draw = True
-        for j in range(self.columns):
-            if self.np_pieces[0][j] == 0:
-                draw = False
-                break
-
-        if draw:
-            self.win_state = WinState(True, 0)
-        else:
-            self.win_state = WinState(False, 0)
+        draw = self.get_valid_moves().sum() == 0
+        self.win_state = WinState(terminated=draw, winner=0)
+        return self.win_state
 
     def make_move(self, col):
+        if self.get_valid_moves().sum() == 0:
+            return self.check_winning()  # Draw
+
         for i in range(self.rows - 1, -1, -1):
             if self.np_pieces[i][col] == 0:
                 self.np_pieces[i][col] = self.current_player
@@ -59,7 +51,7 @@ class Connect4Board:
                     self.switch_player()
                 return self.win_state
 
-        raise ValueError("invalid move try again")
+        raise ValueError("Invalid move!")
 
     def get_valid_moves(self):
         return self.np_pieces[0] == 0
@@ -74,22 +66,33 @@ class Connect4Board:
         return Connect4Board(self.rows, self.columns, np_pieces=np.copy(np_pieces))
 
     def game(self):
-        while True:
-            invalid = True
-            while invalid is True:
-                col = int(input(f'Team {self.current_player} choose column (1->7): ')) - 1
-                invalid = self.make_move(col)
+        while not self.win_state.terminated:
+            while True:
+                try:
+                    col = int(input(f'Team {self.current_player} choose column (1->{self.columns}): '))
+                    if 1 <= col <= self.columns:
+                        break
+                except ValueError:
+                    pass
+                print('Invalid input. Try again!')
 
-            print(self.np_pieces)
-            if self.win_state.terminated:
-                if self.win_state.winner is None:
-                    print('Draw!')
-                else:
-                    print(f'Player {self.win_state.winner} won!')
-                break
+            self.make_move(col - 1)
+            self.display()
 
+        if self.win_state.winner is 0:
+            print('Draw!')
+        else:
+            print(f'Player {self.win_state.winner} won!')
+
+    def display(self):
+        print(self.np_pieces)
 
 if __name__ == "__main__":
-    b = Connect4Board()
-    print(b)
+    b = Connect4Board(np_pieces=np.array([[ 0,  0,  0,  0,  0,  0,  0],
+                                         [ -1,  1,  -1,  1,  -1,  1, -1],
+                                         [ 1, -1,  1, -1,  1, -1,  1],
+                                         [ 1, -1,  1, -1,  1, -1,  1],
+                                         [-1,  1, -1,  1, -1,  1, -1],
+                                         [ 1, -1,  1, -1,  1, -1,  1]]))
+    b.display()
     b.game()
