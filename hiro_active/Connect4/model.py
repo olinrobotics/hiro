@@ -6,11 +6,15 @@ import matplotlib
 
 class DQN(nn.Module):
 
-    def __init__(self, input_size, output_size, state_size, n_layers):
+    def __init__(self, game, output_size):
         super(DQN, self).__init__()
-        self.conv1 = nn.Conv2d(input_size, state_size, n_layers)
-        self.bn1 = nn.BatchNorm2d(state_size)
-        self.head = nn.Linear(state_size, output_size)
+        self.board_x, self.board_y = game.getBoardSize()
+        self.input_size = [self.board_x, self.board_y]
+        self.action_size = game.getActionSize()
+        self.n_layers = 3
+        self.conv1 = nn.Conv2d(input_size, action_size, n_layers)
+        self.bn1 = nn.BatchNorm2d(action_size)
+        self.head = nn.Linear(action_size, output_size)
 
     def forward(self, x):
         x = fun.relu(self.bn1(self.conv1(x)))

@@ -1,6 +1,10 @@
 from collections import deque
 from tqdm import tqdm
 from random import shuffle
+from pickle import Pickler, Unpickler
+import os
+import sys
+from Arena import Arena
 
 class Coach:
     def __init__(self, game, nnet, args):
@@ -34,6 +38,7 @@ class Coach:
                 self.trainExamplesHistory.append(iterationTrainExamples)
 
             # TODO: why do we pop the first one
+            # If we have too many train examples than needed, remove the oldest one
             if len(self.trainExamplesHistory) > self.args.numItersForTrainExamplesHistory:
                 print(f'Removing the oldest entry in trainExamples. len(trainExamplesHistory = {len(self.trainExamplesHistory)}')
                 self.trainExamplesHistory.pop(0)
@@ -45,8 +50,8 @@ class Coach:
             trainExamples = self.shuffle(self.trainExamplesHistory)
 
             # training new network, keeping a copy of the old one
-            self.nnet.save_checkpoint(folder=self.args.checkpoint, filename='temp.pth.tar')
-            self.pnet.load_checkpoint(folder=self.args.checkpoint, filename='temp.pth.tar')
+            self.nnet.saveTrainExamples(folder=self.args.checkpoint, filename='temp.pth.tar')
+            self.pnet.loadTrainExample(folder=self.args.checkpoint, filename='temp.pth.tar')
             pmcts = MCTS(self.game, self.pnet, self.args)
 
             self.nnet.train(trainExamples)
@@ -104,7 +109,8 @@ class Coach:
     def shuffle(self, trainExamplesHistory):
         trainExamples = []
         for e in self.trainExamplesHistory:
-            trainExamples.extend(e)  # TODO: shouldn't this be append?
+            trainExamples.extend(e)  # TODO: shouldn't this be append? -- extend: formatting
+                                     # if x = [a,b,c], x.append([a,b]) -> [a,b,c,[a,b]], x.extend([a,b]) -> [a,b,c,a,b]
         shuffle(trainExamples)
         return trainExamples
 
