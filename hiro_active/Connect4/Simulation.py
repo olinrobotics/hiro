@@ -69,7 +69,8 @@ class Connect4Board:
         while not self.win_state.terminated:
             while True:
                 try:
-                    col = int(input(f'Team {self.current_player} choose column (1->{self.columns}): '))
+                    col = int(input("choose column (1->7): "))
+                    # col = int(input(f'Team {self.current_player} choose column (1->{self.columns}): '))
                     if 1 <= col <= self.columns:
                         break
                 except ValueError:
@@ -82,7 +83,7 @@ class Connect4Board:
         if self.win_state.winner is 0:
             print('Draw!')
         else:
-            print(f'Player {self.win_state.winner} won!')
+            print("Player ", self.win_state.winner, 'won!')
 
     def display(self):
         print(self.np_pieces)

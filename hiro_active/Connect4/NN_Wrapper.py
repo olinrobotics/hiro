@@ -8,6 +8,8 @@ from tqdm import tqdm
 
 import torch
 from model import DQN as c4net
+from model import Loss
+from gameTree import MCTS
 
 
 class NeuralNet():
@@ -19,10 +21,28 @@ class NeuralNet():
     """
 
     def __init__(self, game):
-        self.nnet = c4net(game, 64)
+        device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+        self.nnet = c4net(game)
+        self.nnet self.nnet.to(device)
         self.board_x, self.board_y = game.getBoardSize()
         self.action_size = game.getActionSize()
         self.saver = None
+
+    def predict(self,board):
+
+        nn_loss = Loss()
+
+        print("Predict...")
+        nn_loss.optimizer.zero_grad()
+        # Initialize the state to zeros
+        output, _ = c4net(board)
+
+        loss = nn_loss.loss_criterion(output.view(-1), target_padded.view(-1))
+        loss.backward()
+        nn_loss.optimizer.step()
+        losses.append(loss.item())
+
+        # return torch.tensor([0.7,0.5,0.4,0.3,0.2,0.8,0.6],dtype=torch.float32),torch.tensor([1,3,4,5,3,2,1],dtype=torch.float32)
 
     def save_checkpoint(self, folder, filename):
         """

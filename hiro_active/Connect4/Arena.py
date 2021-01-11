@@ -32,7 +32,7 @@ class Arena:
         while self.game.GetGameEnded(board, current_player) == 0:
             iteration += 1
             if verbose:
-                print(f"Turn {iteration} \t Player {current_player}")
+                print("Turn", iteration, "Player", current_player)
                 self.game.display(board)
 
             canonical = self.game.getCanonicalForm(board, current_player)
@@ -42,13 +42,13 @@ class Arena:
 
             # TODO: How to ensure RL produces valid moves?
             if valids[action] == 0:
-                print(f'Action {action} is not valid')
+                print("Action",action, 'is not valid')
                 assert valids[action] > 0
 
             board, current_player = self.game.getNextState(board, current_player, action)
 
         if verbose:
-            print(f'Game over: Turn {iteration} | Result {str(self.game.getGameEnded(board, 1))}')
+            print("Game over: Turn", iteration, "| Result", str(self.game.getGameEnded(board, 1)))
             self.game.display(board)
         return current_player * self.game.getGameEnded(board, current_player)
 

@@ -1,6 +1,7 @@
 
 import logging
 import math
+import torch
 
 import numpy as np
 
@@ -26,8 +27,8 @@ class MCTS():
         self.Es = {}  # stores game.getGameEnded ended for board s
         self.Vs = {}  # stores game.getValidMoves for board s
 
-    def getActionProb(self, canonicalBoard, temp=1):    
-        for i in range(self.args.numMCTSSims):
+    def getActionProb(self, canonicalBoard, temp=1):
+        for i in range(self.args['numMCTSSims']):
             self.search(canonicalBoard)
 
         s = self.game.stringRepresentation(canonicalBoard)
@@ -58,7 +59,7 @@ class MCTS():
         if s not in self.Ps:
             # leaf node
             self.Ps[s], v = self.nnet.predict(canonicalBoard)
-            valids = self.game.getValidMoves(canonicalBoard, 1)
+            valids = torch.tensor(self.game.getValidMoves(canonicalBoard, 1))
             self.Ps[s] = self.Ps[s] * valids  # masking invalid moves
             sum_Ps_s = np.sum(self.Ps[s])
             if sum_Ps_s > 0:
@@ -78,10 +79,10 @@ class MCTS():
         for a in range(self.game.getActionSize()):
             if valids[a]:
                 if (s, a) in self.Qsa:
-                    u = self.Qsa[(s, a)] + self.args.cpuct * self.Ps[s][a] * \
+                    u = self.Qsa[(s, a)] + self.args['cpuct'] * self.Ps[s][a] * \
                             math.sqrt(self.Ns[s]) (1 + self.Nsa[(s, a)])
                 else:
-                    u = self.args.cpuct * self.Ps[s][a] * math.sqrt(self.Ns[s]\
+                    u = self.args['cpuct'] * self.Ps[s][a] * math.sqrt(self.Ns[s]\
                             + EPS)  # Q = 0 ?
 
                 if u > cur_best:
@@ -95,8 +96,7 @@ class MCTS():
         v = self.search(next_s)
 
         if (s, a) in self.Qsa:
-            self.Qsa[(s, a)] = (self.Nsa[(s, a)] * self.Qsa[(s, a)] + v) /
-                (self.Nsa[(s, a)] + 1)
+            self.Qsa[(s, a)] = (self.Nsa[(s, a)] * self.Qsa[(s, a)] + v) / (self.Nsa[(s, a)] + 1)
             self.Nsa[(s, a)] += 1
 
         else:
