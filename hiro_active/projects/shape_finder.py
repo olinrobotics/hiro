@@ -45,16 +45,14 @@ def canny_draw_lines(frame):
     return contours
 
 
-def contour_to_csv(contours):
-    for i in range(0, np.size(contours)):
-        contour_list = contours[i]
-        file_name = 'contours" + str(i) + ".csv'
-        with open(file_name, 'w', newline="") as f:
-            writer = csv.writer(f)
-            for i in range(0, len(contour_list)):
-                point = contour_list[i].tolist()
-                data = [point[0][0], point[0][1]]
-                writer.writerow(data)
+def points_to_csv(points):
+    file_name = 'points.csv'
+    with open(file_name, 'w', newline="") as f:
+        writer = csv.writer(f)
+        for i in range(0, len(points)):
+            point = points[i]
+            data = [points[0][0], points[0][1]]
+            writer.writerow(data)
 
 
 def geometric_center(contours):
@@ -82,7 +80,6 @@ def collinear(x1, y1, x2, y2, x3, y3):
 def where_to_grab():
     contour_num = int(input('shape (0-6): '))
     contours = canny_draw_lines("shape-clipart.jpg")
-    contour_to_csv(contours)
     means = geometric_center(contours)
     contour = contours[contour_num]
     mean = means[contour_num]
@@ -140,4 +137,4 @@ def where_to_grab():
     return points
 
 points = where_to_grab()
-print(points)
+points_to_csv(points)
