@@ -51,7 +51,7 @@ def points_to_csv(points, num):
         writer = csv.writer(f)
         for i in range(0, len(points)):
             point = points[i]
-            data = [point[0], point[1]]
+            data = [point[0][0], point[0][1], point[1][0], point[1][1]]
             writer.writerow(data)
 
 
@@ -143,5 +143,6 @@ def where_to_grab(num):
         points[i][1][1] = points[i][1][1]*1/20
     return points
 
-means = geometric_center(canny_draw_lines('shape-clipart.jpg'))
-means_to_csv(means)
+for i in range(0,6):
+    pts = where_to_grab(i)
+    points_to_csv(pts, i)
