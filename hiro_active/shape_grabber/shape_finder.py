@@ -77,111 +77,66 @@ def collinear(x1, y1, x2, y2, x3, y3):
         return True
     return False
 
-def where_to_grab(mean, contour):
-    """
-    args:
-        mean: [x, y]
-        contour: [x, y]
-    """
+
+def where_to_grab():
+    contour_num = int(input('shape (0-6): '))
+    contours = canny_draw_lines("shape-clipart.jpg")
+    contour_to_csv(contours)
+    means = geometric_center(contours)
+    contour = contours[contour_num]
+    mean = means[contour_num]
+
+    tip = False
+
     contour_list = contour.tolist()
     contour_x = []
     contour_y = []
+
     for i in range(len(contour_list)):
         contour_x.append(contour_list[i][0][0])
         contour_y.append(contour_list[i][0][1])
     points = []
+
     with tqdm(total = len(contour_list)-1, desc = "Finding points") as pbar:
+        
         for i in range(0, len(contour_list)-1):
-            # Looping through every point in contour list
+            tip = False
             data = contour_list[i]
             point = [data[0][0], data[0][1]]
-            for j in range(0, len(contour_list)-1):
-                # Loops through again. Looks for points in contour_list that are collinear
-                # with the centerpoint and the point chosen again, parallel, and perpendicular
-                # to the centerpoint.
-                if collinear(mean[0], mean[1], point[0], point[1], contour_x[j], contour_y[j]):
+            try:
+                centerline_slope = (round(mean[1]) - point[1])/(round(mean[0]) - point[0])
+            except ZeroDivisionError:
+                centerline_slope = (round(mean[1])-point[1])/abs(round(mean[1]-point[1]))*1000000
+            for x in range(min(contour_x), max(contour_x)+1):
+                    y_calc = centerline_slope*(x-point[0]) + point[1]
+                    if tip:
+                        print(f"{x}, {y_calc}, centerline_slope: {centerline_slope}")
+                    if [[x, round(y_calc)]] in contour_list:
+                        # print(f"Orig pt: {point}, opp pt. : ({x}, {y_calc}),")
+                        x_points = np.array([contour_x[i-1], contour_x[i], contour_x[i+1]])
+                        y_points = np.array([contour_y[i-1], contour_y[i], contour_y[i+1]])
+                        pts = np.vstack([x_points,np.ones(len(x_points))]).T
+                        # Finding slope at original point
+                        m,c = np.linalg.lstsq(pts,y_points,rcond=None)[0]
+                        # least square has trouble with vertical line, define slope myself
+                        if x_points[0]==x_points[1]==x_points[2]:
+                            m = 1000000
 
-                    # All points are collinear. To be valid, 
-                    x_points = np.array([contour_x[i-1], contour_x[i], contour_x[i+1]])
-                    y_points = np.array([contour_y[i-1], contour_y[i], contour_y[i+1]])
-                    pts = np.vstack([x_points,np.ones(len(x_points))]).T
-
-                    # Finding slope at original point
-                    m,c = np.linalg.lstsq(pts,y_points,rcond=None)[0]
-                    # least square has trouble with vertical line, define slope manually
-                    if x_points[0]==x_points[1]==x_points[2]:
-                        m = 1000000
-
-                    # Conditions for grabbable set of points: Original point should be on a parallel line to the 
-                    # second point and both lines should be perpendicular to the centerline.
-                    if round(m, 2) == round(centerline_slope**-1, 2) or round(m**-1,2) == round(centerline_slope,2):
-                        points.append([point, [x, round(y_calc)]])
+                        # Setting centerline slope to a very small value if the slope is horizontal
+                        # to avoid a divide by zero error.
+                        if centerline_slope == 0:
+                            centerline_slope = 0.001
+                        if round(m, 2) == round(centerline_slope**-1, 2) or round(m**-1,2) == round(centerline_slope,2):
+                            if [point, [x, round(y_calc)]] not in points:
+                                points.append([point, [x, round(y_calc)]])
             pbar.update(1)
+
+    for i, _ in enumerate(points):
+        points[i][0][0] = points[i][0][0]*1/20
+        points[i][0][1] = points[i][0][1]*1/20
+        points[i][1][0] = points[i][1][0]*1/20
+        points[i][1][1] = points[i][1][1]*1/20
     return points
 
-contour_num = int(input('shape (0-6): '))
-contours = canny_draw_lines("shape-clipart.jpg")
-contour_to_csv(contours)
-means = geometric_center(contours)
-contour = contours[contour_num]
-mean = means[contour_num]
-
-tip = False
-
-contour_list = contour.tolist()
-contour_x = []
-contour_y = []
-for i in range(len(contour_list)):
-    contour_x.append(contour_list[i][0][0])
-    contour_y.append(contour_list[i][0][1])
-points = []
-with tqdm(total = len(contour_list)-1, desc = "Finding points") as pbar:
-    
-    for i in range(0, len(contour_list)-1):
-        tip = False
-        data = contour_list[i]
-        point = [data[0][0], data[0][1]]
-        if point == [1061, 660]:
-            print('Tip of the triangle chosen')
-            tip = True
-        try:
-            centerline_slope = (round(mean[1]) - point[1])/(round(mean[0]) - point[0])
-        except ZeroDivisionError:
-            centerline_slope = (round(mean[1])-point[1])/abs(round(mean[1]-point[1]))*1000000
-        for x in range(min(contour_x), max(contour_x)+1):
-                y_calc = centerline_slope*(x-point[0]) + point[1]
-                if tip:
-                    print(f"{x}, {y_calc}, centerline_slope: {centerline_slope}")
-                if [[x, round(y_calc)]] in contour_list:
-                    # print(f"Orig pt: {point}, opp pt. : ({x}, {y_calc}),")
-                    x_points = np.array([contour_x[i-1], contour_x[i], contour_x[i+1]])
-                    y_points = np.array([contour_y[i-1], contour_y[i], contour_y[i+1]])
-                    pts = np.vstack([x_points,np.ones(len(x_points))]).T
-                    # Finding slope at original point
-                    m,c = np.linalg.lstsq(pts,y_points,rcond=None)[0]
-                    # least square has trouble with vertical line, define slope myself
-                    if x_points[0]==x_points[1]==x_points[2]:
-                        m = 1000000
-
-                    # Setting centerline slope to a very small value if the slope is horizontal
-                    # to avoid a divide by zero error.
-                    if centerline_slope == 0:
-                        centerline_slope = 0.001
-                    if round(m, 2) == round(centerline_slope**-1, 2) or round(m**-1,2) == round(centerline_slope,2):
-                        points.append([point, [x, round(y_calc)]])
-        pbar.update(1)
-
-
-
-
-
+points = where_to_grab()
 print(points)
-
-img = cv2.imread('shape-clipart.jpg')
-for i, _ in enumerate(points):
-    cv2.circle(img, (points[i][0][0], points[i][0][1]), 3, (255,255,255), -1)
-    cv2.circle(img, (points[i][1][0], points[i][1][1]), 3, (255,255,255), -1)
-    cv2.imshow('point',img)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows
-cv2.destroyAllWindows
