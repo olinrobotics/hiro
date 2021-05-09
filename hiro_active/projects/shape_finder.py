@@ -45,13 +45,13 @@ def canny_draw_lines(frame):
     return contours
 
 
-def points_to_csv(points):
-    file_name = 'points.csv'
+def points_to_csv(points, num):
+    file_name = f'points_{num}.csv'
     with open(file_name, 'w', newline="") as f:
         writer = csv.writer(f)
         for i in range(0, len(points)):
             point = points[i]
-            data = [points[0][0], points[0][1]]
+            data = [point[0][0], point[0][1]]
             writer.writerow(data)
 
 
@@ -77,8 +77,8 @@ def collinear(x1, y1, x2, y2, x3, y3):
     return False
 
 
-def where_to_grab():
-    contour_num = int(input('shape (0-6): '))
+def where_to_grab(num):
+    contour_num = num
     contours = canny_draw_lines("shape-clipart.jpg")
     means = geometric_center(contours)
     contour = contours[contour_num]
@@ -136,5 +136,6 @@ def where_to_grab():
         points[i][1][1] = points[i][1][1]*1/20
     return points
 
-points = where_to_grab()
-points_to_csv(points)
+for i in range(0,5):
+    pts = where_to_grab(i)
+    points_to_csv(pts, i)
