@@ -103,7 +103,7 @@ This script will:
 ![Red Pieces](https://github.com/olinrobotics/hiro/blob/master/hiro_archive/Fall_2018/chess/Red_Color.jpeg)
 
 ## Demo
-![]()
+[![Chess Demo](http://img.youtube.com/vi/E0Jwf3QlJ3c/0.jpg)](https://youtu.be/E0Jwf3QlJ3c) 
 
 ## Tools Used
 * Ubuntu 16.04
