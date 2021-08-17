@@ -103,7 +103,9 @@ This script will:
 ![Red Pieces](https://github.com/olinrobotics/hiro/blob/master/hiro_archive/Fall_2018/chess/Red_Color.jpeg)
 
 ## Demo
-![]()
+[![Chess Demo](http://img.youtube.com/vi/E0Jwf3QlJ3c/sddefault.jpg)](https://youtu.be/E0Jwf3QlJ3c) 
+
+[![Chess Demo with Player](http://img.youtube.com/vi/6zfk314v_7U/sddefault.jpg)](https://youtu.be/6zfk314v_7U) 
 
 ## Tools Used
 * Ubuntu 16.04
