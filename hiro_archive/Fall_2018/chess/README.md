@@ -105,7 +105,7 @@ This script will:
 ## Demo
 [![Chess Demo](http://img.youtube.com/vi/E0Jwf3QlJ3c/sddefault.jpg)](https://youtu.be/E0Jwf3QlJ3c) 
 
-[![Chess Demo with Player](http://img.youtube.com/vi/E6zfk314v_7U/sddefault.jpg)](https://youtu.be/6zfk314v_7U) 
+[![Chess Demo with Player](http://img.youtube.com/vi/E6zfk314v_7U/0.jpg)](https://youtu.be/6zfk314v_7U) 
 
 ## Tools Used
 * Ubuntu 16.04
