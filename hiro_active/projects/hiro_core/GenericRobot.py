@@ -12,7 +12,7 @@ import rospy
 from geometry_msgs.msg import Pose
 from moveit_msgs.msg import PlanningScene, DisplayTrajectory, RobotTrajectory
 from moveit_msgs.srv import GetPlanningScene
-
+from two_arm_helpers import *
 
 class GenericRobot(object):
 
@@ -199,6 +199,16 @@ class GenericRobot(object):
         # type: (str) -> str
         if self.contains(group_name):
             return self.move_groups[group_name].get_end_effector_link()
+
+    def build_arm_constraints(self, move_group):
+        joint_pos = move_group.get_current_joint_values()
+        return joint_pos
+
+    def two_arm_goal(self, goal_left, goal_right):
+        """
+        Parametrize and generate path for two arms in the same workspace
+        such that arm-to-arm collision is avoided.
+        """
 
 
 if __name__ == '__main__':
