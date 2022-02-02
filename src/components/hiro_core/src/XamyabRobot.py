@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 A class to represent Xamyab robot. It contains all the Xamyab's move groups
 and provides basic functionalities to control them.

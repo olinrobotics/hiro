@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 A generic class created to work with any robot controlled by the MoveIt! interface.
 It has basic functions to retrieve robot information and to control all the

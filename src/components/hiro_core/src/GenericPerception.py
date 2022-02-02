@@ -1,11 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 A generic perception class created to work with any camera.
 It provides basic functionalities to retrieve raw data from
 the camera (RGB, depth, and point cloud).
 """
 import matplotlib.pyplot as plt
-from mpl_toolkits import mplot3d # This is require for matplot lib
+from mpl_toolkits import mplot3d  # This is require for matplot lib
 from cv_bridge import CvBridgeError, CvBridge
 
 import cv2
@@ -27,19 +27,20 @@ class GenericPerception(object):
         rospy.init_node(node_name, anonymous=True)
         rospy.Subscriber(depth, Image, self.depth_callback, queue_size=10)
         rospy.Subscriber(color, Image, self.color_callback, queue_size=10)
-        rospy.Subscriber(points, PointCloud2, self.pointcloud_callback, queue_size=10)
+        rospy.Subscriber(points, PointCloud2,
+                         self.pointcloud_callback, queue_size=10)
 
     def color_callback(self, data):
         try:
             self.rgb_scaled_img = self.bridge.imgmsg_to_cv2(data, "bgr8")
         except CvBridgeError as e:
-            print e
+            print(e)
 
     def depth_callback(self, data):
         try:
             self.depth_scaled_img = self.bridge.imgmsg_to_cv2(data)
         except CvBridgeError as e:
-            print e
+            print(e)
 
     def pointcloud_callback(self, data):
         self.point_cloud = data
@@ -69,7 +70,8 @@ class GenericPerception(object):
             if self.depth_scaled_img is None:
                 continue
 
-            d = cv2.applyColorMap(self.depth_scaled_img.astype(np.uint8), cv2.COLORMAP_RAINBOW)
+            d = cv2.applyColorMap(self.depth_scaled_img.astype(
+                np.uint8), cv2.COLORMAP_RAINBOW)
             cv2.imshow('Depth Image', d)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
@@ -109,17 +111,17 @@ class GenericPerception(object):
         Use this function to test your code
         :return: None
         """
-        print "============ Show color"
+        print("============ Show color")
         self.show_color()
 
-        print "============ Show depth channel"
+        print("============ Show depth channel")
         self.show_depth()
 
-        print "============ Print point cloud coordinates"
+        print("============ Print point cloud coordinates")
         coords = self.get_pointcloud_coords()
-        print coords[0]
+        print(coords[0])
 
-        print "============ Plot point cloud coords"
+        print("============ Plot point cloud coords")
         GenericPerception.plot_cube3d(coords)
 
 
@@ -129,5 +131,6 @@ if __name__ == '__main__':
     ColorSubscriber = '/kinect2/sd/image_color'
     PointCloudSubscriber = '/kinect2/sd/points'
 
-    perception = GenericPerception(DepthSubscriber, ColorSubscriber, PointCloudSubscriber)
+    perception = GenericPerception(
+        DepthSubscriber, ColorSubscriber, PointCloudSubscriber)
     perception.run()
