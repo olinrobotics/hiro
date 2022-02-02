@@ -1,0 +1,8 @@
+prefix=/home/ksuresh/hiro/install
+
+Name: hiro_core
+Description: Description of hiro_core
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

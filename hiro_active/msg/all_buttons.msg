@@ -1,4 +1,0 @@
-red_button red_button
-green_button green_button
-blue_button blue_button
-yellow_button yellow_button
