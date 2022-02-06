@@ -20,13 +20,13 @@
     <build_depend>message_generation</build_depend>
 
     <!-- UR5 -->
-    <build_depend>ur_bringup</build_depend>
+    <!-- <build_depend>ur_bringup</build_depend>
     <build_depend>ur_description</build_depend>
     <build_depend>ur_driver</build_depend>
     <build_depend>ur_gazebo</build_depend>
     <build_depend>ur_kinematics</build_depend>
     <build_depend>ur_msgs</build_depend>
-    <build_depend>ur5_moveit_config</build_depend>
+    <build_depend>ur5_moveit_config</build_depend> -->
 
     <build_depend>libopenni-dev</build_depend>
     <build_depend>libusb-1.0-dev</build_depend>
@@ -53,7 +53,8 @@
     <build_depend>tf2_ros</build_depend>
     <build_depend>tf2_eigen</build_depend>
     <build_depend>tf2_geometry_msgs</build_depend>
-
+    <build_depend>ur_robot_driver</build_depend>
+    
     <exec_depend>roscpp</exec_depend>
     <exec_depend>rospy</exec_depend>
     <exec_depend>roslib</exec_depend>
@@ -62,15 +63,15 @@
     <exec_depend>cv_bridge</exec_depend>
     <exec_depend>image_transport</exec_depend>
     <exec_depend>message_runtime</exec_depend>
-
+    <exec_depend>ur_robot_driver</exec_depend>
     <!-- UR5 -->
-    <exec_depend>ur_bringup</exec_depend>
+    <!-- <exec_depend>ur_bringup</exec_depend>
     <exec_depend>ur_description</exec_depend>
     <exec_depend>ur_driver</exec_depend>
     <exec_depend>ur_gazebo</exec_depend>
     <exec_depend>ur_kinematics</exec_depend>
     <exec_depend>ur_msgs</exec_depend>
-    <exec_depend>ur5_moveit_config</exec_depend>
+    <exec_depend>ur5_moveit_config</exec_depend> -->
 
     <exec_depend>libopenni-dev</exec_depend>
     <exec_depend>libusb-1.0-dev</exec_depend>

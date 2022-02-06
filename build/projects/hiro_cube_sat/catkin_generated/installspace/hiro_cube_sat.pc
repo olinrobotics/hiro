@@ -1,8 +1,0 @@
-prefix=/home/ksuresh/hiro/install
-
-Name: hiro_cube_sat
-Description: Description of hiro_cube_sat
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

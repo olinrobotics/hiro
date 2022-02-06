@@ -1,7 +1,0 @@
-set(hiro_SETUP_PY_SETUP_MODULE "distutils.core")
-set(hiro_SETUP_PY_VERSION "0.0.0")
-set(hiro_SETUP_PY_SCRIPTS "")
-set(hiro_SETUP_PY_PACKAGES "hiro")
-set(hiro_SETUP_PY_PACKAGE_DIRS "include/hiro")
-set(hiro_SETUP_PY_MODULES "")
-set(hiro_SETUP_PY_MODULE_DIRS "")

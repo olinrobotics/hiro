@@ -1,8 +1,0 @@
-prefix=/home/ksuresh/hiro/install
-
-Name: hiro_utils
-Description: Description of hiro_utils
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
