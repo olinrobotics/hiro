@@ -33,13 +33,13 @@
   <arg name="shutdown_on_disconnect" default="true" />
 
   <!-- robot model -->
-  <include file="$(find ur_description)/launch/xamyab_upload.launch">
+  <include file="$(find hiro_core)/launch/xamyab_upload.launch">
     <arg name="limited" value="$(arg limited)"/>
     <arg name="grippers" value="$(arg grippers)"/>
   </include>
 
   <!-- ur common -->
-  <include file="$(find ur_modern_driver)/launch/xamyab_ur_common.launch">
+  <include file="$(find hiro_core)/launch/xamyab_ur_common.launch">
     <arg name="left_robot_ip" value="$(arg left_robot_ip)"/>
     <arg name="left_reverse_port" value="$(arg left_reverse_port)"/>
     <arg name="right_robot_ip" value="$(arg right_robot_ip)"/>

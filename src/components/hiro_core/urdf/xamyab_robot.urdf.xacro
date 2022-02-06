@@ -10,16 +10,16 @@
 
     <!--############## IMPORT STUFF ##############-->
     <!-- common stuff -->
-    <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro"/>
+    <xacro:include filename="$(find hiro_core)/urdf/common.gazebo.xacro"/>
 
     <!-- ground -->
-    <xacro:include filename="$(find ur_description)/urdf/ground.urdf.xacro"/>
+    <xacro:include filename="$(find hiro_core)/urdf/ground.urdf.xacro"/>
 
     <!-- ur5 -->
-    <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro"/>
+    <xacro:include filename="$(find ur_description)/urdf/ur5.xacro"/>
 
     <!-- body -->
-    <xacro:include filename="$(find ur_description)/urdf/xamyab_body.urdf.xacro"/>
+    <xacro:include filename="$(find hiro_core)/urdf/xamyab_body.urdf.xacro"/>
 
     <!-- robotiq 2f 140 gripper -->
     <xacro:if value="${grippers != 0}">

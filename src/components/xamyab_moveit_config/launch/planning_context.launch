@@ -10,7 +10,7 @@
   <!-- Load universal robot description format (URDF) -->
   <group if="$(arg load_robot_description)">
     <param name="robot_description"
-           command="$(find xacro)/xacro --inorder '$(find ur_description)/urdf/xamyab_robot.urdf.xacro' limited:=$(arg limited) grippers:=$(arg grippers)"/>
+           command="$(find xacro)/xacro '$(find ur_description)/urdf/xamyab_robot.urdf.xacro' limited:=$(arg limited) grippers:=$(arg grippers)"/>
   </group>
 
   <!-- The semantic description that corresponds to the URDF -->

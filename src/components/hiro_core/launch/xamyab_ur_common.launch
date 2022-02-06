@@ -39,7 +39,7 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
   <!-- left arm driver -->
-  <node name="left_ur_driver" pkg="ur_modern_driver" type="ur_driver" output="screen" ns="$(arg left_prefix)arm">
+  <node name="left_ur_driver" pkg="ur_robot_driver" type="ur_robot_driver_node" output="screen" ns="$(arg left_prefix)arm">
   <!-- copy the specified IP address to be consistant with ROS-Industrial spec. -->
     <param name="prefix" type="str" value="$(arg left_prefix)" />
     <param name="robot_ip_address" type="str" value="$(arg left_robot_ip)" />
@@ -63,7 +63,7 @@
   </node>
 
   <!-- right arm driver -->
-  <node name="right_ur_driver" pkg="ur_modern_driver" type="ur_driver" output="screen" ns="$(arg right_prefix)arm">
+  <node name="right_ur_driver" pkg="ur_robot_driver" type="ur_robot_driver_node" output="screen" ns="$(arg right_prefix)arm">
   <!-- copy the specified IP address to be consistant with ROS-Industrial spec. -->
     <param name="prefix" type="str" value="$(arg right_prefix)" />
     <param name="robot_ip_address" type="str" value="$(arg right_robot_ip)" />
@@ -87,5 +87,5 @@
   </node>
 
   <!-- python script to combine left arm and right arm's joint states-->
-  <node name="dual_arms_combined_jointstates" pkg="ur_modern_driver" type="dual_arms_combined_jointstates.py" output="screen"/>
+  <node name="dual_arms_combined_jointstates" pkg="hiro_core" type="dual_arms_combined_jointstates.py" output="screen"/>
 </launch>
