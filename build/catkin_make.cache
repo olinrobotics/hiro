@@ -1,2 +1,2 @@
-components/hiro_core:components/hiro_utils:projects/perfection_game
+components/hiro_core:components/hiro_utils:projects/hiro_cube_sat:projects/hiro_perfection_game:projects/hiro_stacking_cubes:projects/test
 -DCATKIN_DEVEL_PREFIX=/home/ksuresh/hiro/devel -DCMAKE_INSTALL_PREFIX=/home/ksuresh/hiro/install -G Unix Makefiles

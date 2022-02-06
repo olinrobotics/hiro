@@ -131,9 +131,12 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/ksuresh/hiro/build/gtest/cmake_install.cmake")
+  include("/home/ksuresh/hiro/build/projects/hiro_cube_sat/cmake_install.cmake")
+  include("/home/ksuresh/hiro/build/projects/hiro_perfection_game/cmake_install.cmake")
   include("/home/ksuresh/hiro/build/components/hiro_utils/cmake_install.cmake")
-  include("/home/ksuresh/hiro/build/projects/perfection_game/cmake_install.cmake")
   include("/home/ksuresh/hiro/build/components/hiro_core/cmake_install.cmake")
+  include("/home/ksuresh/hiro/build/projects/hiro_stacking_cubes/cmake_install.cmake")
+  include("/home/ksuresh/hiro/build/projects/test/cmake_install.cmake")
 
 endif()
 

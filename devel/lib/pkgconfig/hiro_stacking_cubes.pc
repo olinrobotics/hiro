@@ -1,0 +1,8 @@
+prefix=/home/ksuresh/hiro/devel
+
+Name: hiro_stacking_cubes
+Description: Description of hiro_stacking_cubes
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

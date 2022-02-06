@@ -19,7 +19,7 @@ from geometry_msgs.msg import Quaternion, Point
 from moveit_msgs.msg import PlanningSceneComponents
 from tf.transformations import quaternion_from_euler
 
-from GenericRobot import *
+from .GenericRobot import GenericRobot
 
 
 class XamyabRobot(GenericRobot):

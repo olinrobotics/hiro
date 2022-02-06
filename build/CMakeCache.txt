@@ -536,8 +536,29 @@ hiro_SOURCE_DIR:STATIC=/home/ksuresh/hiro/src/hiro_active
 //Value Computed by CMake
 hiro_core_BINARY_DIR:STATIC=/home/ksuresh/hiro/build/components/hiro_core
 
+//The directory containing a CMake configuration file for hiro_core.
+hiro_core_DIR:PATH=/home/ksuresh/hiro/devel/share/hiro_core/cmake
+
 //Value Computed by CMake
 hiro_core_SOURCE_DIR:STATIC=/home/ksuresh/hiro/src/components/hiro_core
+
+//Value Computed by CMake
+hiro_cube_sat_BINARY_DIR:STATIC=/home/ksuresh/hiro/build/projects/hiro_cube_sat
+
+//Value Computed by CMake
+hiro_cube_sat_SOURCE_DIR:STATIC=/home/ksuresh/hiro/src/projects/hiro_cube_sat
+
+//Value Computed by CMake
+hiro_perfection_game_BINARY_DIR:STATIC=/home/ksuresh/hiro/build/projects/hiro_perfection_game
+
+//Value Computed by CMake
+hiro_perfection_game_SOURCE_DIR:STATIC=/home/ksuresh/hiro/src/projects/hiro_perfection_game
+
+//Value Computed by CMake
+hiro_stacking_cubes_BINARY_DIR:STATIC=/home/ksuresh/hiro/build/projects/hiro_stacking_cubes
+
+//Value Computed by CMake
+hiro_stacking_cubes_SOURCE_DIR:STATIC=/home/ksuresh/hiro/src/projects/hiro_stacking_cubes
 
 //Value Computed by CMake
 hiro_utils_BINARY_DIR:STATIC=/home/ksuresh/hiro/build/components/hiro_utils
@@ -694,6 +715,12 @@ std_msgs_DIR:PATH=/opt/ros/noetic/share/std_msgs/cmake
 
 //The directory containing a CMake configuration file for std_srvs.
 std_srvs_DIR:PATH=/opt/ros/noetic/share/std_srvs/cmake
+
+//Value Computed by CMake
+test_BINARY_DIR:STATIC=/home/ksuresh/hiro/build/projects/test
+
+//Value Computed by CMake
+test_SOURCE_DIR:STATIC=/home/ksuresh/hiro/src/projects/test
 
 //The directory containing a CMake configuration file for tf2.
 tf2_DIR:PATH=/opt/ros/noetic/share/tf2/cmake
@@ -882,7 +909,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
