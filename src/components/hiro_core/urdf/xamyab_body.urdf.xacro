@@ -1,0 +1,29 @@
+<robot xmlns:xacro="http://wiki.ros.org/xacro"
+       name="xamyab">
+    <xacro:macro name='xamyab_body' params="width:=${1.0} height:=${1.0} depth:=${1.0} mass:=${10.0}">
+
+        <xacro:property name="ixx" value="${1/12*mass*(height*height + depth*depth)}"/>
+        <xacro:property name="iyy" value="${1/12*mass*(width*width + depth*depth)}"/>
+        <xacro:property name="izz" value="${1/12*mass*(width*width + height*height)}"/>
+
+        <link name="body_base_link">
+            <inertial>
+                <origin xyz="0 0 ${height / 2}" rpy="0 0 0"/>
+                <mass value="${mass}"/>
+                <inertia ixx="${ixx}" ixy="0" ixz="0" iyy="${iyy}" iyz="0" izz="${izz}"/>
+            </inertial>
+            <visual>
+                <origin xyz="0 0 ${height / 2}" rpy="0 0 0"/>
+                <geometry>
+                    <box size="${width} ${depth} ${height}"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 ${height / 2}" rpy="0 0 0"/>
+                <geometry>
+                    <box size="${width} ${depth} ${height}"/>
+                </geometry>
+            </collision>
+        </link>
+    </xacro:macro>
+</robot>
