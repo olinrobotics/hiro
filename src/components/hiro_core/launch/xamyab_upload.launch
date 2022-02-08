@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-    <arg name="limited" default="true" doc="If true, limits joint range [-PI, PI] on all joints."/>
-    <arg name="sim" default="true" doc="If true, bring up the fake depth camera."/>
-    <arg name="grippers" default="3" doc="Spawn grippers or not. 0 - none, 1 - left only, 2 - right only, 3 - both"/>
-
-    <param name="robot_description"
-           command="$(find xacro)/xacro '$(find hiro_core)/urdf/xamyab_robot.urdf.xacro' limited:=$(arg limited) grippers:=$(arg grippers) sim:=$(arg sim)"/>
-</launch>

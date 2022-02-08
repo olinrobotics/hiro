@@ -70,5 +70,7 @@ vendor/*
 
 src/third-party/*
 build/*
+build_isolated/*
+devel_isolated/*
 devel/*
 .vscode/*
