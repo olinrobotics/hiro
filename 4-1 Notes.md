@@ -11,9 +11,11 @@
 
 ## Looking Forward
 **Vision Team**
+
 Check in w/ me later this week
 
 **Path Planning**
+
 Krishna: Trying to get live-drive in simulation
 Merwan: Investigate the constrained planner
 Anmol: Continue going through ROS tutorials & potentially reach out later this week for new tasks
